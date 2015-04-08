@@ -1,0 +1,20 @@
+BibliothequeBundle\Entity\Reservation:
+    type: entity
+    table: null
+    repositoryClass: BibliothequeBundle\Entity\ReservationRepository
+    manyToOne:
+        membre:
+            targetEntity: Membre
+            inversedBy: reservations
+            cascade: [ persist ]
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        dateReservation:
+            type: date
+            column: date_reservation
+    lifecycleCallbacks: {  }

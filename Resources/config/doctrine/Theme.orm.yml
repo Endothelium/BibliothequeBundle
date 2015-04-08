@@ -1,0 +1,18 @@
+BibliothequeBundle\Entity\Theme:
+    type: entity
+    table: null
+    repositoryClass: BibliothequeBundle\Entity\ThemeRepository
+    manyToMany:
+        livresT:
+            targetEntity: Livre
+            mappedBy: themes
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        description:
+            type: text
+    lifecycleCallbacks: {  }
