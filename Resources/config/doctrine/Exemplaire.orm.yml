@@ -1,0 +1,21 @@
+BibliothequeBundle\Entity\Exemplaire:
+    type: entity
+    table: null
+    repositoryClass: BibliothequeBundle\Entity\ExemplaireRepository
+    manyToOne:
+        livre:
+            targetEntity: Livre
+            inversedBy: exemplaires
+            cascade: [ persist ]
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        codeRangement:
+            type: string
+            length: '4'
+            column: code_rangement
+    lifecycleCallbacks: {  }
