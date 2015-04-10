@@ -3,7 +3,7 @@ BibliothequeBundle\Entity\Emprunt:
     table: null
     repositoryClass: BibliothequeBundle\Entity\EmpruntRepository
     manyToOne:
-        membre:
+        emprunteur:
             targetEntity: Membre
             inversedBy: emprunts
             cascade: [ persist ]

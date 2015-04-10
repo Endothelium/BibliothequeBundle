@@ -15,12 +15,12 @@ BibliothequeBundle\Entity\Membre:
     oneToMany:
         emprunts:
             targetEntity: Emprunt
-            mappedBy: membre
+            mappedBy: emprunteur
             orphanRemoval: true
     oneToMany:
         reservations:
             targetEntity: Reservation
-            mappedBy: membre
+            mappedBy: reserve
             orphanRemoval: true
     id:
         id:

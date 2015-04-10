@@ -3,9 +3,14 @@ BibliothequeBundle\Entity\Reservation:
     table: null
     repositoryClass: BibliothequeBundle\Entity\ReservationRepository
     manyToOne:
-        membre:
+        reserve:
             targetEntity: Membre
             inversedBy: reservations
+            cascade: [ persist ]
+    manyToOne:
+        exemplaire:
+            targetEntity: Reservation
+            inversedBy:
             cascade: [ persist ]
     id:
         id:
