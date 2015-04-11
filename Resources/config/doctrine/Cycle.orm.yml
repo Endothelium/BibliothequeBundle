@@ -3,7 +3,7 @@ BibliothequeBundle\Entity\Cycle:
     table: null
     repositoryClass: BibliothequeBundle\Entity\CycleRepository
     oneToMany:
-        membres:
+        membresCycle:
             targetEntity: Membre
             mappedBy: cycle
     id:

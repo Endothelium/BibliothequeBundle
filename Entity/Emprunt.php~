@@ -108,4 +108,32 @@ class Emprunt
     {
         return $this->membre;
     }
+    /**
+     * @var \BibliothequeBundle\Entity\Membre
+     */
+    private $emprunteur;
+
+
+    /**
+     * Set emprunteur
+     *
+     * @param \BibliothequeBundle\Entity\Membre $emprunteur
+     * @return Emprunt
+     */
+    public function setEmprunteur(\BibliothequeBundle\Entity\Membre $emprunteur = null)
+    {
+        $this->emprunteur = $emprunteur;
+
+        return $this;
+    }
+
+    /**
+     * Get emprunteur
+     *
+     * @return \BibliothequeBundle\Entity\Membre 
+     */
+    public function getEmprunteur()
+    {
+        return $this->emprunteur;
+    }
 }

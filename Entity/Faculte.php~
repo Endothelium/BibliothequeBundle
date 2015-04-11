@@ -97,4 +97,46 @@ class Faculte
     {
         return $this->membres;
     }
+	
+	public function __toString(){
+		return $this->id.':'.$this->designation;
+	}
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $membresFaculte;
+
+
+    /**
+     * Add membresFaculte
+     *
+     * @param \BibliothequeBundle\Entity\Membre $membresFaculte
+     * @return Faculte
+     */
+    public function addMembresFaculte(\BibliothequeBundle\Entity\Membre $membresFaculte)
+    {
+        $this->membresFaculte[] = $membresFaculte;
+
+        return $this;
+    }
+
+    /**
+     * Remove membresFaculte
+     *
+     * @param \BibliothequeBundle\Entity\Membre $membresFaculte
+     */
+    public function removeMembresFaculte(\BibliothequeBundle\Entity\Membre $membresFaculte)
+    {
+        $this->membresFaculte->removeElement($membresFaculte);
+    }
+
+    /**
+     * Get membresFaculte
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMembresFaculte()
+    {
+        return $this->membresFaculte;
+    }
 }

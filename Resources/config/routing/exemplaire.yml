@@ -1,0 +1,30 @@
+exemplaire:
+    path:     /
+    defaults: { _controller: "BibliothequeBundle:Exemplaire:index" }
+
+exemplaire_show:
+    path:     /{id}/show
+    defaults: { _controller: "BibliothequeBundle:Exemplaire:show" }
+
+exemplaire_new:
+    path:     /new
+    defaults: { _controller: "BibliothequeBundle:Exemplaire:new" }
+
+exemplaire_create:
+    path:     /create
+    defaults: { _controller: "BibliothequeBundle:Exemplaire:create" }
+    requirements: { _method: post }
+
+exemplaire_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BibliothequeBundle:Exemplaire:edit" }
+
+exemplaire_update:
+    path:     /{id}/update
+    defaults: { _controller: "BibliothequeBundle:Exemplaire:update" }
+    requirements: { _method: post|put }
+
+exemplaire_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BibliothequeBundle:Exemplaire:delete" }
+    requirements: { _method: post|delete }

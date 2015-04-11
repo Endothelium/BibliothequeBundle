@@ -8,9 +8,9 @@ BibliothequeBundle\Entity\Reservation:
             inversedBy: reservations
             cascade: [ persist ]
     manyToOne:
-        exemplaire:
-            targetEntity: Reservation
-            inversedBy:
+        exemplaireRes:
+            targetEntity: Exemplaire
+            inversedBy: exemplaires
             cascade: [ persist ]
     id:
         id:

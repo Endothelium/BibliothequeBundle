@@ -1,3 +1,35 @@
+bibliotheque_auteur:
+    resource: "@BibliothequeBundle/Resources/config/routing/auteur.yml"
+    prefix:   /auteur
+
+bibliotheque_theme:
+    resource: "@BibliothequeBundle/Resources/config/routing/theme.yml"
+    prefix:   /theme
+
+bibliotheque_reservation:
+    resource: "@BibliothequeBundle/Resources/config/routing/reservation.yml"
+    prefix:   /reservation
+
+bibliotheque_emprunt:
+    resource: "@BibliothequeBundle/Resources/config/routing/emprunt.yml"
+    prefix:   /emprunt
+
+bibliotheque_exemplaire:
+    resource: "@BibliothequeBundle/Resources/config/routing/exemplaire.yml"
+    prefix:   /exemplaire
+
+bibliotheque_cycle:
+    resource: "@BibliothequeBundle/Resources/config/routing/cycle.yml"
+    prefix:   /cycle
+
+bibliotheque_membre:
+    resource: "@BibliothequeBundle/Resources/config/routing/membre.yml"
+    prefix:   /membre
+
+bibliotheque_faculte:
+    resource: "@BibliothequeBundle/Resources/config/routing/faculte.yml"
+    prefix:   /faculte
+
 bibliotheque_livre:
     resource: "@BibliothequeBundle/Resources/config/routing/livre.yml"
     prefix:   /livre

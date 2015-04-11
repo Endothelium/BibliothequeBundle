@@ -3,7 +3,7 @@ BibliothequeBundle\Entity\Faculte:
     table: null
     repositoryClass: BibliothequeBundle\Entity\FaculteRepository
     oneToMany:
-        membres:
+        membresFaculte:
             targetEntity: Membre
             mappedBy: faculte
     id:

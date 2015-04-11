@@ -80,4 +80,32 @@ class Reservation
     {
         return $this->membre;
     }
+    /**
+     * @var \BibliothequeBundle\Entity\Membre
+     */
+    private $reserve;
+
+
+    /**
+     * Set reserve
+     *
+     * @param \BibliothequeBundle\Entity\Membre $reserve
+     * @return Reservation
+     */
+    public function setReserve(\BibliothequeBundle\Entity\Membre $reserve = null)
+    {
+        $this->reserve = $reserve;
+
+        return $this;
+    }
+
+    /**
+     * Get reserve
+     *
+     * @return \BibliothequeBundle\Entity\Membre 
+     */
+    public function getReserve()
+    {
+        return $this->reserve;
+    }
 }

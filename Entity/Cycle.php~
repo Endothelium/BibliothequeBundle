@@ -125,4 +125,42 @@ class Cycle
     {
         return $this->membres;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $membresCycle;
+
+
+    /**
+     * Add membresCycle
+     *
+     * @param \BibliothequeBundle\Entity\Membre $membresCycle
+     * @return Cycle
+     */
+    public function addMembresCycle(\BibliothequeBundle\Entity\Membre $membresCycle)
+    {
+        $this->membresCycle[] = $membresCycle;
+
+        return $this;
+    }
+
+    /**
+     * Remove membresCycle
+     *
+     * @param \BibliothequeBundle\Entity\Membre $membresCycle
+     */
+    public function removeMembresCycle(\BibliothequeBundle\Entity\Membre $membresCycle)
+    {
+        $this->membresCycle->removeElement($membresCycle);
+    }
+
+    /**
+     * Get membresCycle
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMembresCycle()
+    {
+        return $this->membresCycle;
+    }
 }

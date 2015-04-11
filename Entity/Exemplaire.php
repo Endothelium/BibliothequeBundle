@@ -80,4 +80,49 @@ class Exemplaire
     {
         return $this->livre;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $listemprunts;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->listemprunts = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add listemprunts
+     *
+     * @param \BibliothequeBundle\Entity\Emprunt $listemprunts
+     * @return Exemplaire
+     */
+    public function addListemprunt(\BibliothequeBundle\Entity\Emprunt $listemprunts)
+    {
+        $this->listemprunts[] = $listemprunts;
+
+        return $this;
+    }
+
+    /**
+     * Remove listemprunts
+     *
+     * @param \BibliothequeBundle\Entity\Emprunt $listemprunts
+     */
+    public function removeListemprunt(\BibliothequeBundle\Entity\Emprunt $listemprunts)
+    {
+        $this->listemprunts->removeElement($listemprunts);
+    }
+
+    /**
+     * Get listemprunts
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getListemprunts()
+    {
+        return $this->listemprunts;
+    }
 }
