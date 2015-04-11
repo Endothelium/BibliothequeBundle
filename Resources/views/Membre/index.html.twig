@@ -1,0 +1,54 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Membre list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Identifiant</th>
+                <th>Password</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+				<th>Faculte</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('membre_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.identifiant }}</td>
+                <td>{{ entity.password }}</td>
+                <td>{{ entity.nom }}</td>
+                <td>{{ entity.prenom }}</td>
+				<td>{{ entity.faculte }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('membre_show', { 'id': entity.id }) }}">Afficher</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('membre_edit', { 'id': entity.id }) }}">Modifier</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('membre_new') }}">
+                Creer un nouveau membre
+            </a>
+        </li>
+		<li>
+				<a href="{{ path('membre_search_by_nom') }}">
+                Chercher un membre par son nom
+            </a>
+		</li>
+    </ul>
+    {% endblock %}

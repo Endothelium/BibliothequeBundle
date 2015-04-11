@@ -1,0 +1,30 @@
+cycle:
+    path:     /
+    defaults: { _controller: "BibliothequeBundle:Cycle:index" }
+
+cycle_show:
+    path:     /{id}/show
+    defaults: { _controller: "BibliothequeBundle:Cycle:show" }
+
+cycle_new:
+    path:     /new
+    defaults: { _controller: "BibliothequeBundle:Cycle:new" }
+
+cycle_create:
+    path:     /create
+    defaults: { _controller: "BibliothequeBundle:Cycle:create" }
+    requirements: { _method: post }
+
+cycle_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BibliothequeBundle:Cycle:edit" }
+
+cycle_update:
+    path:     /{id}/update
+    defaults: { _controller: "BibliothequeBundle:Cycle:update" }
+    requirements: { _method: post|put }
+
+cycle_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BibliothequeBundle:Cycle:delete" }
+    requirements: { _method: post|delete }

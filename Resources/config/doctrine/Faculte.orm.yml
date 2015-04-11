@@ -1,0 +1,18 @@
+BibliothequeBundle\Entity\Faculte:
+    type: entity
+    table: null
+    repositoryClass: BibliothequeBundle\Entity\FaculteRepository
+    oneToMany:
+        membresFaculte:
+            targetEntity: Membre
+            mappedBy: faculte
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        designation:
+            type: text
+    lifecycleCallbacks: {  }

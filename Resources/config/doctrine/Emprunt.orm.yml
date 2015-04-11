@@ -1,0 +1,28 @@
+BibliothequeBundle\Entity\Emprunt:
+    type: entity
+    table: null
+    repositoryClass: BibliothequeBundle\Entity\EmpruntRepository
+    manyToOne:
+        emprunteur:
+            targetEntity: Membre
+            inversedBy: emprunts
+            cascade: [ persist ]
+    manyToOne:
+        exemplaireEmp:
+            targetEntity: Exemplaire
+            inversedBy: listemprunts
+            cascade: [ persist ]
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        dateDebut:
+            type: date
+            column: date_debut
+        dateRetour:
+            type: date
+            column: date_retour
+    lifecycleCallbacks: {  }

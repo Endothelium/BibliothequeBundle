@@ -1,0 +1,30 @@
+emprunt:
+    path:     /
+    defaults: { _controller: "BibliothequeBundle:Emprunt:index" }
+
+emprunt_show:
+    path:     /{id}/show
+    defaults: { _controller: "BibliothequeBundle:Emprunt:show" }
+
+emprunt_new:
+    path:     /new
+    defaults: { _controller: "BibliothequeBundle:Emprunt:new" }
+
+emprunt_create:
+    path:     /create
+    defaults: { _controller: "BibliothequeBundle:Emprunt:create" }
+    requirements: { _method: post }
+
+emprunt_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BibliothequeBundle:Emprunt:edit" }
+
+emprunt_update:
+    path:     /{id}/update
+    defaults: { _controller: "BibliothequeBundle:Emprunt:update" }
+    requirements: { _method: post|put }
+
+emprunt_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BibliothequeBundle:Emprunt:delete" }
+    requirements: { _method: post|delete }

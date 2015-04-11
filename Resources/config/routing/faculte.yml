@@ -1,0 +1,30 @@
+faculte:
+    path:     /
+    defaults: { _controller: "BibliothequeBundle:Faculte:index" }
+
+faculte_show:
+    path:     /{id}/show
+    defaults: { _controller: "BibliothequeBundle:Faculte:show" }
+
+faculte_new:
+    path:     /new
+    defaults: { _controller: "BibliothequeBundle:Faculte:new" }
+
+faculte_create:
+    path:     /create
+    defaults: { _controller: "BibliothequeBundle:Faculte:create" }
+    requirements: { _method: post }
+
+faculte_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BibliothequeBundle:Faculte:edit" }
+
+faculte_update:
+    path:     /{id}/update
+    defaults: { _controller: "BibliothequeBundle:Faculte:update" }
+    requirements: { _method: post|put }
+
+faculte_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BibliothequeBundle:Faculte:delete" }
+    requirements: { _method: post|delete }

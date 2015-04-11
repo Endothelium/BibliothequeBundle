@@ -1,0 +1,45 @@
+BibliothequeBundle\Entity\Membre:
+    type: entity
+    table: null
+    repositoryClass: BibliothequeBundle\Entity\MembreRepository
+    manyToOne:
+        faculte:
+            targetEntity: Faculte
+            inversedBy: membresFaculte
+            casccade: [ persist ]
+    manyToOne:
+        cycle:
+            targetEntity: Cycle
+            inversedBy: membresCycle
+            casccade: [ persist ]
+    oneToMany:
+        emprunts:
+            targetEntity: Emprunt
+            mappedBy: emprunteur
+            orphanRemoval: true
+    oneToMany:
+        reservations:
+            targetEntity: Reservation
+            mappedBy: reserve
+            orphanRemoval: true
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        identifiant:
+            type: string
+            length: '25'
+            column: Identifiant
+        password:
+            type: string
+            length: '15'
+        nom:
+            type: string
+            length: '30'
+        prenom:
+            type: string
+            length: '30'
+    lifecycleCallbacks: {  }
