@@ -1,9 +1,9 @@
-BibliothequeBundle\Entity\Cycle:
+Projet\BibliothequeBundle\Entity\Cycle:
     type: entity
     table: null
-    repositoryClass: BibliothequeBundle\Entity\CycleRepository
+    repositoryClass: Projet\BibliothequeBundle\Entity\CycleRepository
     oneToMany:
-        membres:
+        membresCycle:
             targetEntity: Membre
             mappedBy: cycle
     id:

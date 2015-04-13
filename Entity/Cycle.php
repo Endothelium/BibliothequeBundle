@@ -1,6 +1,6 @@
 <?php
 
-namespace BibliothequeBundle\Entity;
+namespace Projet\BibliothequeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -24,6 +24,18 @@ class Cycle
      */
     private $nbLivres;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $membresCycle;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->membresCycle = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -80,49 +92,37 @@ class Cycle
     {
         return $this->nbLivres;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $membres;
 
     /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->membres = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add membres
+     * Add membresCycle
      *
-     * @param \BibliothequeBundle\Entity\Membre $membres
+     * @param \Projet\BibliothequeBundle\Entity\Membre $membresCycle
      * @return Cycle
      */
-    public function addMembre(\BibliothequeBundle\Entity\Membre $membres)
+    public function addMembresCycle(\Projet\BibliothequeBundle\Entity\Membre $membresCycle)
     {
-        $this->membres[] = $membres;
+        $this->membresCycle[] = $membresCycle;
 
         return $this;
     }
 
     /**
-     * Remove membres
+     * Remove membresCycle
      *
-     * @param \BibliothequeBundle\Entity\Membre $membres
+     * @param \Projet\BibliothequeBundle\Entity\Membre $membresCycle
      */
-    public function removeMembre(\BibliothequeBundle\Entity\Membre $membres)
+    public function removeMembresCycle(\Projet\BibliothequeBundle\Entity\Membre $membresCycle)
     {
-        $this->membres->removeElement($membres);
+        $this->membresCycle->removeElement($membresCycle);
     }
 
     /**
-     * Get membres
+     * Get membresCycle
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getMembres()
+    public function getMembresCycle()
     {
-        return $this->membres;
+        return $this->membresCycle;
     }
 }

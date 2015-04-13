@@ -1,9 +1,9 @@
-BibliothequeBundle\Entity\Faculte:
+Projet\BibliothequeBundle\Entity\Faculte:
     type: entity
     table: null
-    repositoryClass: BibliothequeBundle\Entity\FaculteRepository
+    repositoryClass: Projet\BibliothequeBundle\Entity\FaculteRepository
     oneToMany:
-        membres:
+        membresFaculte:
             targetEntity: Membre
             mappedBy: faculte
     id:

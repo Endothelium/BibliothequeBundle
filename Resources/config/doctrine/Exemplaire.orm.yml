@@ -1,12 +1,21 @@
-BibliothequeBundle\Entity\Exemplaire:
+Projet\BibliothequeBundle\Entity\Exemplaire:
     type: entity
     table: null
-    repositoryClass: BibliothequeBundle\Entity\ExemplaireRepository
+    repositoryClass: Projet\BibliothequeBundle\Entity\ExemplaireRepository
     manyToOne:
         livre:
             targetEntity: Livre
             inversedBy: exemplaires
             cascade: [ persist ]
+    oneToMany:
+        listemprunts:
+            targetEntity: Emprunt
+            mappedBy: exemplaireEmp
+            orphanRemoval: true
+        listreservations:
+            targetEntity: Reservation
+            mappedBy: exemplaireRes
+            orphanRemoval: true
     id:
         id:
             type: integer

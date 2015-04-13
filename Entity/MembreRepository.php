@@ -1,6 +1,6 @@
 <?php
 
-namespace BibliothequeBundle\Entity;
+namespace Projet\BibliothequeBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 
@@ -12,4 +12,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class MembreRepository extends EntityRepository
 {
+	public function chercherParNomPart($str){
+		$query = $this->getEntityManager()->createQuery
+		("SELECT s FROM ProjetBibliothequeBundle:Membre s WHERE s.nom LIKE :str");
+		$query->setParameter('str','%'.$str.'%');
+		$membres = $query->getResult();
+		return $membres;
+	}
 }

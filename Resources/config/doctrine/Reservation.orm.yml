@@ -1,16 +1,15 @@
-BibliothequeBundle\Entity\Reservation:
+Projet\BibliothequeBundle\Entity\Reservation:
     type: entity
     table: null
-    repositoryClass: BibliothequeBundle\Entity\ReservationRepository
+    repositoryClass: Projet\BibliothequeBundle\Entity\ReservationRepository
     manyToOne:
-        reserve:
+        membreRes:
             targetEntity: Membre
             inversedBy: reservations
             cascade: [ persist ]
-    manyToOne:
-        exemplaire:
-            targetEntity: Reservation
-            inversedBy:
+        exemplaireRes:
+            targetEntity: Exemplaire
+            inversedBy: exemplaires
             cascade: [ persist ]
     id:
         id:

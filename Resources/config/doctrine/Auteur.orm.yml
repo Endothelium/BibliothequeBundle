@@ -1,7 +1,7 @@
-BibliothequeBundle\Entity\Auteur:
+Projet\BibliothequeBundle\Entity\Auteur:
     type: entity
     table: null
-    repositoryClass: BibliothequeBundle\Entity\AuteurRepository
+    repositoryClass: Projet\BibliothequeBundle\Entity\AuteurRepository
     manyToMany:
         livresA:
             targetEntity: Livre

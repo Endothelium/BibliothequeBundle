@@ -1,26 +1,24 @@
-BibliothequeBundle\Entity\Membre:
+Projet\BibliothequeBundle\Entity\Membre:
     type: entity
     table: null
-    repositoryClass: BibliothequeBundle\Entity\MembreRepository
+    repositoryClass: Projet\BibliothequeBundle\Entity\MembreRepository
     manyToOne:
         faculte:
             targetEntity: Faculte
             inversedBy: membresFaculte
-            casccade: [ persist ]
-    manyToOne:
+            cascade: [ persist ]
         cycle:
             targetEntity: Cycle
             inversedBy: membresCycle
-            casccade: [ persist ]
+            cascade: [ persist ]
     oneToMany:
         emprunts:
             targetEntity: Emprunt
-            mappedBy: emprunteur
+            mappedBy: membreEmp
             orphanRemoval: true
-    oneToMany:
         reservations:
             targetEntity: Reservation
-            mappedBy: reserve
+            mappedBy: membreRes
             orphanRemoval: true
     id:
         id:
@@ -29,10 +27,10 @@ BibliothequeBundle\Entity\Membre:
             generator:
                 strategy: AUTO
     fields:
-        identifiant:
+        username:
             type: string
             length: '25'
-            column: Identifiant
+            column: Username
         password:
             type: string
             length: '15'

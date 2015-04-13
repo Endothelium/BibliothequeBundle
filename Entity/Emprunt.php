@@ -1,6 +1,6 @@
 <?php
 
-namespace BibliothequeBundle\Entity;
+namespace Projet\BibliothequeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -23,6 +23,16 @@ class Emprunt
      * @var \DateTime
      */
     private $dateRetour;
+
+    /**
+     * @var \Projet\BibliothequeBundle\Entity\Membre
+     */
+    private $membreEmp;
+
+    /**
+     * @var \Projet\BibliothequeBundle\Entity\Exemplaire
+     */
+    private $exemplaireEmp;
 
 
     /**
@@ -80,60 +90,50 @@ class Emprunt
     {
         return $this->dateRetour;
     }
-    /**
-     * @var \BibliothequeBundle\Entity\Membre
-     */
-    private $membre;
-
 
     /**
-     * Set membre
+     * Set membreEmp
      *
-     * @param \BibliothequeBundle\Entity\Membre $membre
+     * @param \Projet\BibliothequeBundle\Entity\Membre $membreEmp
      * @return Emprunt
      */
-    public function setMembre(\BibliothequeBundle\Entity\Membre $membre = null)
+    public function setMembreEmp(\Projet\BibliothequeBundle\Entity\Membre $membreEmp = null)
     {
-        $this->membre = $membre;
+        $this->membreEmp = $membreEmp;
 
         return $this;
     }
 
     /**
-     * Get membre
+     * Get membreEmp
      *
-     * @return \BibliothequeBundle\Entity\Membre 
+     * @return \Projet\BibliothequeBundle\Entity\Membre 
      */
-    public function getMembre()
+    public function getMembreEmp()
     {
-        return $this->membre;
+        return $this->membreEmp;
     }
-    /**
-     * @var \BibliothequeBundle\Entity\Membre
-     */
-    private $emprunteur;
-
 
     /**
-     * Set emprunteur
+     * Set exemplaireEmp
      *
-     * @param \BibliothequeBundle\Entity\Membre $emprunteur
+     * @param \Projet\BibliothequeBundle\Entity\Exemplaire $exemplaireEmp
      * @return Emprunt
      */
-    public function setEmprunteur(\BibliothequeBundle\Entity\Membre $emprunteur = null)
+    public function setExemplaireEmp(\Projet\BibliothequeBundle\Entity\Exemplaire $exemplaireEmp = null)
     {
-        $this->emprunteur = $emprunteur;
+        $this->exemplaireEmp = $exemplaireEmp;
 
         return $this;
     }
 
     /**
-     * Get emprunteur
+     * Get exemplaireEmp
      *
-     * @return \BibliothequeBundle\Entity\Membre 
+     * @return \Projet\BibliothequeBundle\Entity\Exemplaire 
      */
-    public function getEmprunteur()
+    public function getExemplaireEmp()
     {
-        return $this->emprunteur;
+        return $this->exemplaireEmp;
     }
 }

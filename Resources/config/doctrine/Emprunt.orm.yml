@@ -1,11 +1,15 @@
-BibliothequeBundle\Entity\Emprunt:
+Projet\BibliothequeBundle\Entity\Emprunt:
     type: entity
     table: null
-    repositoryClass: BibliothequeBundle\Entity\EmpruntRepository
+    repositoryClass: Projet\BibliothequeBundle\Entity\EmpruntRepository
     manyToOne:
-        emprunteur:
+        membreEmp:
             targetEntity: Membre
             inversedBy: emprunts
+            cascade: [ persist ]
+        exemplaireEmp:
+            targetEntity: Exemplaire
+            inversedBy: listemprunts
             cascade: [ persist ]
     id:
         id:

@@ -1,6 +1,6 @@
 <?php
 
-namespace BibliothequeBundle\Entity;
+namespace Projet\BibliothequeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -19,6 +19,18 @@ class Faculte
      */
     private $designation;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $membresFaculte;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->membresFaculte = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -52,49 +64,37 @@ class Faculte
     {
         return $this->designation;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $membres;
 
     /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->membres = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add membres
+     * Add membresFaculte
      *
-     * @param \BibliothequeBundle\Entity\Membre $membres
+     * @param \Projet\BibliothequeBundle\Entity\Membre $membresFaculte
      * @return Faculte
      */
-    public function addMembre(\BibliothequeBundle\Entity\Membre $membres)
+    public function addMembresFaculte(\Projet\BibliothequeBundle\Entity\Membre $membresFaculte)
     {
-        $this->membres[] = $membres;
+        $this->membresFaculte[] = $membresFaculte;
 
         return $this;
     }
 
     /**
-     * Remove membres
+     * Remove membresFaculte
      *
-     * @param \BibliothequeBundle\Entity\Membre $membres
+     * @param \Projet\BibliothequeBundle\Entity\Membre $membresFaculte
      */
-    public function removeMembre(\BibliothequeBundle\Entity\Membre $membres)
+    public function removeMembresFaculte(\Projet\BibliothequeBundle\Entity\Membre $membresFaculte)
     {
-        $this->membres->removeElement($membres);
+        $this->membresFaculte->removeElement($membresFaculte);
     }
 
     /**
-     * Get membres
+     * Get membresFaculte
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getMembres()
+    public function getMembresFaculte()
     {
-        return $this->membres;
+        return $this->membresFaculte;
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace BibliothequeBundle\Entity;
+namespace Projet\BibliothequeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -24,6 +24,30 @@ class Livre
      */
     private $notice;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $exemplaires;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $auteurs;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $themes;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->exemplaires = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->auteurs = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->themes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -80,26 +104,47 @@ class Livre
     {
         return $this->notice;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $auteurs;
 
     /**
-     * Constructor
+     * Add exemplaires
+     *
+     * @param \Projet\BibliothequeBundle\Entity\Exemplaire $exemplaires
+     * @return Livre
      */
-    public function __construct()
+    public function addExemplaire(\Projet\BibliothequeBundle\Entity\Exemplaire $exemplaires)
     {
-        $this->auteurs = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->exemplaires[] = $exemplaires;
+
+        return $this;
+    }
+
+    /**
+     * Remove exemplaires
+     *
+     * @param \Projet\BibliothequeBundle\Entity\Exemplaire $exemplaires
+     */
+    public function removeExemplaire(\Projet\BibliothequeBundle\Entity\Exemplaire $exemplaires)
+    {
+        $this->exemplaires->removeElement($exemplaires);
+    }
+
+    /**
+     * Get exemplaires
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getExemplaires()
+    {
+        return $this->exemplaires;
     }
 
     /**
      * Add auteurs
      *
-     * @param \BibliothequeBundle\Entity\Auteur $auteurs
+     * @param \Projet\BibliothequeBundle\Entity\Auteur $auteurs
      * @return Livre
      */
-    public function addAuteur(\BibliothequeBundle\Entity\Auteur $auteurs)
+    public function addAuteur(\Projet\BibliothequeBundle\Entity\Auteur $auteurs)
     {
         $this->auteurs[] = $auteurs;
 
@@ -109,9 +154,9 @@ class Livre
     /**
      * Remove auteurs
      *
-     * @param \BibliothequeBundle\Entity\Auteur $auteurs
+     * @param \Projet\BibliothequeBundle\Entity\Auteur $auteurs
      */
-    public function removeAuteur(\BibliothequeBundle\Entity\Auteur $auteurs)
+    public function removeAuteur(\Projet\BibliothequeBundle\Entity\Auteur $auteurs)
     {
         $this->auteurs->removeElement($auteurs);
     }
@@ -125,42 +170,37 @@ class Livre
     {
         return $this->auteurs;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $exemplaires;
-
 
     /**
-     * Add exemplaires
+     * Add themes
      *
-     * @param \BibliothequeBundle\Entity\Exemplaire $exemplaires
+     * @param \Projet\BibliothequeBundle\Entity\Theme $themes
      * @return Livre
      */
-    public function addExemplaire(\BibliothequeBundle\Entity\Exemplaire $exemplaires)
+    public function addTheme(\Projet\BibliothequeBundle\Entity\Theme $themes)
     {
-        $this->exemplaires[] = $exemplaires;
+        $this->themes[] = $themes;
 
         return $this;
     }
 
     /**
-     * Remove exemplaires
+     * Remove themes
      *
-     * @param \BibliothequeBundle\Entity\Exemplaire $exemplaires
+     * @param \Projet\BibliothequeBundle\Entity\Theme $themes
      */
-    public function removeExemplaire(\BibliothequeBundle\Entity\Exemplaire $exemplaires)
+    public function removeTheme(\Projet\BibliothequeBundle\Entity\Theme $themes)
     {
-        $this->exemplaires->removeElement($exemplaires);
+        $this->themes->removeElement($themes);
     }
 
     /**
-     * Get exemplaires
+     * Get themes
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getExemplaires()
+    public function getThemes()
     {
-        return $this->exemplaires;
+        return $this->themes;
     }
 }

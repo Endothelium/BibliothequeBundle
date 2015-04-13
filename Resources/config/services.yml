@@ -1,4 +1,4 @@
 services:
-#    bibliotheque.example:
-#        class: BibliothequeBundle\Example
+#    projet_bibliotheque.example:
+#        class: Projet\BibliothequeBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]

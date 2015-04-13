@@ -1,6 +1,6 @@
 <?php
 
-namespace BibliothequeBundle\Entity;
+namespace Projet\BibliothequeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -18,6 +18,16 @@ class Reservation
      * @var \DateTime
      */
     private $dateReservation;
+
+    /**
+     * @var \Projet\BibliothequeBundle\Entity\Membre
+     */
+    private $membreRes;
+
+    /**
+     * @var \Projet\BibliothequeBundle\Entity\Exemplaire
+     */
+    private $exemplaireRes;
 
 
     /**
@@ -52,60 +62,50 @@ class Reservation
     {
         return $this->dateReservation;
     }
-    /**
-     * @var \BibliothequeBundle\Entity\Membre
-     */
-    private $membre;
-
 
     /**
-     * Set membre
+     * Set membreRes
      *
-     * @param \BibliothequeBundle\Entity\Membre $membre
+     * @param \Projet\BibliothequeBundle\Entity\Membre $membreRes
      * @return Reservation
      */
-    public function setMembre(\BibliothequeBundle\Entity\Membre $membre = null)
+    public function setMembreRes(\Projet\BibliothequeBundle\Entity\Membre $membreRes = null)
     {
-        $this->membre = $membre;
+        $this->membreRes = $membreRes;
 
         return $this;
     }
 
     /**
-     * Get membre
+     * Get membreRes
      *
-     * @return \BibliothequeBundle\Entity\Membre 
+     * @return \Projet\BibliothequeBundle\Entity\Membre 
      */
-    public function getMembre()
+    public function getMembreRes()
     {
-        return $this->membre;
+        return $this->membreRes;
     }
-    /**
-     * @var \BibliothequeBundle\Entity\Membre
-     */
-    private $reserve;
-
 
     /**
-     * Set reserve
+     * Set exemplaireRes
      *
-     * @param \BibliothequeBundle\Entity\Membre $reserve
+     * @param \Projet\BibliothequeBundle\Entity\Exemplaire $exemplaireRes
      * @return Reservation
      */
-    public function setReserve(\BibliothequeBundle\Entity\Membre $reserve = null)
+    public function setExemplaireRes(\Projet\BibliothequeBundle\Entity\Exemplaire $exemplaireRes = null)
     {
-        $this->reserve = $reserve;
+        $this->exemplaireRes = $exemplaireRes;
 
         return $this;
     }
 
     /**
-     * Get reserve
+     * Get exemplaireRes
      *
-     * @return \BibliothequeBundle\Entity\Membre 
+     * @return \Projet\BibliothequeBundle\Entity\Exemplaire 
      */
-    public function getReserve()
+    public function getExemplaireRes()
     {
-        return $this->reserve;
+        return $this->exemplaireRes;
     }
 }

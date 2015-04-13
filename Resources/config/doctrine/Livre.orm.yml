@@ -1,12 +1,11 @@
-BibliothequeBundle\Entity\Livre:
+Projet\BibliothequeBundle\Entity\Livre:
     type: entity
     table: null
-    repositoryClass: BibliothequeBundle\Entity\LivreRepository
+    repositoryClass: Projet\BibliothequeBundle\Entity\LivreRepository
     manyToMany:
         auteurs:
             targetEntity: Auteur
             inversedBy: livresA
-    manyToMany:
         themes:
             targetEntity: Theme
             inversedBy: livresT

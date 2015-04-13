@@ -1,6 +1,6 @@
 <?php
 
-namespace BibliothequeBundle\Entity;
+namespace Projet\BibliothequeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -19,6 +19,18 @@ class Theme
      */
     private $description;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $livresT;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->livresT = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -52,26 +64,14 @@ class Theme
     {
         return $this->description;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $livresT;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->livresT = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Add livresT
      *
-     * @param \BibliothequeBundle\Entity\Livre $livresT
+     * @param \Projet\BibliothequeBundle\Entity\Livre $livresT
      * @return Theme
      */
-    public function addLivresT(\BibliothequeBundle\Entity\Livre $livresT)
+    public function addLivresT(\Projet\BibliothequeBundle\Entity\Livre $livresT)
     {
         $this->livresT[] = $livresT;
 
@@ -81,9 +81,9 @@ class Theme
     /**
      * Remove livresT
      *
-     * @param \BibliothequeBundle\Entity\Livre $livresT
+     * @param \Projet\BibliothequeBundle\Entity\Livre $livresT
      */
-    public function removeLivresT(\BibliothequeBundle\Entity\Livre $livresT)
+    public function removeLivresT(\Projet\BibliothequeBundle\Entity\Livre $livresT)
     {
         $this->livresT->removeElement($livresT);
     }

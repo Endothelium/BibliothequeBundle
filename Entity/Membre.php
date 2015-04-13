@@ -1,6 +1,6 @@
 <?php
 
-namespace BibliothequeBundle\Entity;
+namespace Projet\BibliothequeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -17,7 +17,7 @@ class Membre
     /**
      * @var string
      */
-    private $identifiant;
+    private $username;
 
     /**
      * @var string
@@ -34,6 +34,34 @@ class Membre
      */
     private $prenom;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $emprunts;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $reservations;
+
+    /**
+     * @var \Projet\BibliothequeBundle\Entity\Faculte
+     */
+    private $faculte;
+
+    /**
+     * @var \Projet\BibliothequeBundle\Entity\Cycle
+     */
+    private $cycle;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->emprunts = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->reservations = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -46,26 +74,26 @@ class Membre
     }
 
     /**
-     * Set identifiant
+     * Set username
      *
-     * @param string $identifiant
+     * @param string $username
      * @return Membre
      */
-    public function setIdentifiant($identifiant)
+    public function setUsername($username)
     {
-        $this->identifiant = $identifiant;
+        $this->username = $username;
 
         return $this;
     }
 
     /**
-     * Get identifiant
+     * Get username
      *
      * @return string 
      */
-    public function getIdentifiant()
+    public function getUsername()
     {
-        return $this->identifiant;
+        return $this->username;
     }
 
     /**
@@ -136,31 +164,14 @@ class Membre
     {
         return $this->prenom;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $emprunts;
-
-    /**
-     * @var \BibliothequeBundle\Entity\Faculte
-     */
-    private $faculte;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->emprunts = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Add emprunts
      *
-     * @param \BibliothequeBundle\Entity\Emprunt $emprunts
+     * @param \Projet\BibliothequeBundle\Entity\Emprunt $emprunts
      * @return Membre
      */
-    public function addEmprunt(\BibliothequeBundle\Entity\Emprunt $emprunts)
+    public function addEmprunt(\Projet\BibliothequeBundle\Entity\Emprunt $emprunts)
     {
         $this->emprunts[] = $emprunts;
 
@@ -170,9 +181,9 @@ class Membre
     /**
      * Remove emprunts
      *
-     * @param \BibliothequeBundle\Entity\Emprunt $emprunts
+     * @param \Projet\BibliothequeBundle\Entity\Emprunt $emprunts
      */
-    public function removeEmprunt(\BibliothequeBundle\Entity\Emprunt $emprunts)
+    public function removeEmprunt(\Projet\BibliothequeBundle\Entity\Emprunt $emprunts)
     {
         $this->emprunts->removeElement($emprunts);
     }
@@ -188,12 +199,45 @@ class Membre
     }
 
     /**
-     * Set faculte
+     * Add reservations
      *
-     * @param \BibliothequeBundle\Entity\Faculte $faculte
+     * @param \Projet\BibliothequeBundle\Entity\Reservation $reservations
      * @return Membre
      */
-    public function setFaculte(\BibliothequeBundle\Entity\Faculte $faculte = null)
+    public function addReservation(\Projet\BibliothequeBundle\Entity\Reservation $reservations)
+    {
+        $this->reservations[] = $reservations;
+
+        return $this;
+    }
+
+    /**
+     * Remove reservations
+     *
+     * @param \Projet\BibliothequeBundle\Entity\Reservation $reservations
+     */
+    public function removeReservation(\Projet\BibliothequeBundle\Entity\Reservation $reservations)
+    {
+        $this->reservations->removeElement($reservations);
+    }
+
+    /**
+     * Get reservations
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getReservations()
+    {
+        return $this->reservations;
+    }
+
+    /**
+     * Set faculte
+     *
+     * @param \Projet\BibliothequeBundle\Entity\Faculte $faculte
+     * @return Membre
+     */
+    public function setFaculte(\Projet\BibliothequeBundle\Entity\Faculte $faculte = null)
     {
         $this->faculte = $faculte;
 
@@ -203,10 +247,51 @@ class Membre
     /**
      * Get faculte
      *
-     * @return \BibliothequeBundle\Entity\Faculte 
+     * @return \Projet\BibliothequeBundle\Entity\Faculte 
      */
     public function getFaculte()
     {
         return $this->faculte;
+    }
+
+    /**
+     * Set cycle
+     *
+     * @param \Projet\BibliothequeBundle\Entity\Cycle $cycle
+     * @return Membre
+     */
+    public function setCycle(\Projet\BibliothequeBundle\Entity\Cycle $cycle = null)
+    {
+        $this->cycle = $cycle;
+
+        return $this;
+    }
+
+    /**
+     * Get cycle
+     *
+     * @return \Projet\BibliothequeBundle\Entity\Cycle 
+     */
+    public function getCycle()
+    {
+        return $this->cycle;
+    }
+	
+	public function getSalt() {
+        return '';  // sel vide !
+    }
+	
+    public function getRoles() {
+        return array('ROLE_MEM'); // pas de rôle pour l'instant
+    }
+	
+    public function eraseCredentials() { }
+	
+    public function serialize() {
+        return serialize(array( $this->id, $this->username, $this->password));
+    }
+	
+    public function unserialize($serialized) {
+        list( $this->id, $this->username, $this->password) = unserialize($serialized);
     }
 }
