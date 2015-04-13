@@ -1,0 +1,22 @@
+Projet\BibliothequeBundle\Entity\Auteur:
+    type: entity
+    table: null
+    repositoryClass: Projet\BibliothequeBundle\Entity\AuteurRepository
+    manyToMany:
+        livresA:
+            targetEntity: Livre
+            mappedBy: auteurs
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nom:
+            type: string
+            length: '30'
+        prenom:
+            type: string
+            length: '30'
+    lifecycleCallbacks: {  }

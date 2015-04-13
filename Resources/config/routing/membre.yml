@@ -1,0 +1,30 @@
+membre:
+    path:     /
+    defaults: { _controller: "ProjetBibliothequeBundle:Membre:index" }
+
+membre_show:
+    path:     /{id}/show
+    defaults: { _controller: "ProjetBibliothequeBundle:Membre:show" }
+
+membre_new:
+    path:     /new
+    defaults: { _controller: "ProjetBibliothequeBundle:Membre:new" }
+
+membre_create:
+    path:     /create
+    defaults: { _controller: "ProjetBibliothequeBundle:Membre:create" }
+    requirements: { _method: post }
+
+membre_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ProjetBibliothequeBundle:Membre:edit" }
+
+membre_update:
+    path:     /{id}/update
+    defaults: { _controller: "ProjetBibliothequeBundle:Membre:update" }
+    requirements: { _method: post|put }
+
+membre_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ProjetBibliothequeBundle:Membre:delete" }
+    requirements: { _method: post|delete }

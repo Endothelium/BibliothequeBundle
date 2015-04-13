@@ -1,0 +1,43 @@
+projet_bibliotheque_auteur:
+    resource: "@ProjetBibliothequeBundle/Resources/config/routing/auteur.yml"
+    prefix:   /auteur
+
+projet_bibliotheque_theme:
+    resource: "@ProjetBibliothequeBundle/Resources/config/routing/theme.yml"
+    prefix:   /theme
+
+projet_bibliotheque_reservation:
+    resource: "@ProjetBibliothequeBundle/Resources/config/routing/reservation.yml"
+    prefix:   /reservation
+
+projet_bibliotheque_membre:
+    resource: "@ProjetBibliothequeBundle/Resources/config/routing/membre.yml"
+    prefix:   /membre
+
+projet_bibliotheque_emprunt:
+    resource: "@ProjetBibliothequeBundle/Resources/config/routing/emprunt.yml"
+    prefix:   /emprunt
+
+projet_bibliotheque_exemplaire:
+    resource: "@ProjetBibliothequeBundle/Resources/config/routing/exemplaire.yml"
+    prefix:   /exemplaire
+
+projet_bibliotheque_cycle:
+    resource: "@ProjetBibliothequeBundle/Resources/config/routing/cycle.yml"
+    prefix:   /cycle
+
+projet_bibliotheque_faculte:
+    resource: "@ProjetBibliothequeBundle/Resources/config/routing/faculte.yml"
+    prefix:   /faculte
+
+projet_bibliotheque_livre:
+    resource: "@ProjetBibliothequeBundle/Resources/config/routing/livre.yml"
+    prefix:    /livre
+
+projet_bibliotheque_homepage:
+    path:     /accueil
+    defaults: { _controller: ProjetBibliothequeBundle:Default:index }
+
+projet_bibliotheque_test1:
+    path:     /test1
+    defaults: { _controller: ProjetBibliothequeBundle:Default:test1 }

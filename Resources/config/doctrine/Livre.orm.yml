@@ -1,0 +1,29 @@
+Projet\BibliothequeBundle\Entity\Livre:
+    type: entity
+    table: null
+    repositoryClass: Projet\BibliothequeBundle\Entity\LivreRepository
+    manyToMany:
+        auteurs:
+            targetEntity: Auteur
+            inversedBy: livresA
+        themes:
+            targetEntity: Theme
+            inversedBy: livresT
+    oneToMany:
+        exemplaires:
+            targetEntity: Exemplaire
+            mappedBy: livre
+            orphanRemoval: true
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titre:
+            type: string
+            length: '60'
+        notice:
+            type: text
+    lifecycleCallbacks: {  }

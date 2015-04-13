@@ -1,0 +1,22 @@
+Projet\BibliothequeBundle\Entity\Cycle:
+    type: entity
+    table: null
+    repositoryClass: Projet\BibliothequeBundle\Entity\CycleRepository
+    oneToMany:
+        membresCycle:
+            targetEntity: Membre
+            mappedBy: cycle
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nbJours:
+            type: integer
+            column: nb_jours
+        nbLivres:
+            type: integer
+            column: nb_livres
+    lifecycleCallbacks: {  }

@@ -1,0 +1,30 @@
+Projet\BibliothequeBundle\Entity\Exemplaire:
+    type: entity
+    table: null
+    repositoryClass: Projet\BibliothequeBundle\Entity\ExemplaireRepository
+    manyToOne:
+        livre:
+            targetEntity: Livre
+            inversedBy: exemplaires
+            cascade: [ persist ]
+    oneToMany:
+        listemprunts:
+            targetEntity: Emprunt
+            mappedBy: exemplaireEmp
+            orphanRemoval: true
+        listreservations:
+            targetEntity: Reservation
+            mappedBy: exemplaireRes
+            orphanRemoval: true
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        codeRangement:
+            type: string
+            length: '4'
+            column: code_rangement
+    lifecycleCallbacks: {  }
