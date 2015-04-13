@@ -1,30 +1,30 @@
 theme:
     path:     /
-    defaults: { _controller: "BibliothequeBundle:Theme:index" }
+    defaults: { _controller: "ProjetBibliothequeBundle:Theme:index" }
 
 theme_show:
     path:     /{id}/show
-    defaults: { _controller: "BibliothequeBundle:Theme:show" }
+    defaults: { _controller: "ProjetBibliothequeBundle:Theme:show" }
 
 theme_new:
     path:     /new
-    defaults: { _controller: "BibliothequeBundle:Theme:new" }
+    defaults: { _controller: "ProjetBibliothequeBundle:Theme:new" }
 
 theme_create:
     path:     /create
-    defaults: { _controller: "BibliothequeBundle:Theme:create" }
+    defaults: { _controller: "ProjetBibliothequeBundle:Theme:create" }
     requirements: { _method: post }
 
 theme_edit:
     path:     /{id}/edit
-    defaults: { _controller: "BibliothequeBundle:Theme:edit" }
+    defaults: { _controller: "ProjetBibliothequeBundle:Theme:edit" }
 
 theme_update:
     path:     /{id}/update
-    defaults: { _controller: "BibliothequeBundle:Theme:update" }
+    defaults: { _controller: "ProjetBibliothequeBundle:Theme:update" }
     requirements: { _method: post|put }
 
 theme_delete:
     path:     /{id}/delete
-    defaults: { _controller: "BibliothequeBundle:Theme:delete" }
+    defaults: { _controller: "ProjetBibliothequeBundle:Theme:delete" }
     requirements: { _method: post|delete }

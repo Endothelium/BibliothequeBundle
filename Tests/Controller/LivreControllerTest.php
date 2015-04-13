@@ -1,6 +1,6 @@
 <?php
 
-namespace BibliothequeBundle\Tests\Controller;
+namespace Projet\BibliothequeBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -19,7 +19,7 @@ class LivreControllerTest extends WebTestCase
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
-            'bibliothequebundle_livre[field_name]'  => 'Test',
+            'projet_bibliothequebundle_livre[field_name]'  => 'Test',
             // ... other fields to fill
         ));
 
@@ -33,7 +33,7 @@ class LivreControllerTest extends WebTestCase
         $crawler = $client->click($crawler->selectLink('Edit')->link());
 
         $form = $crawler->selectButton('Update')->form(array(
-            'bibliothequebundle_livre[field_name]'  => 'Foo',
+            'projet_bibliothequebundle_livre[field_name]'  => 'Foo',
             // ... other fields to fill
         ));
 

@@ -1,30 +1,30 @@
 reservation:
     path:     /
-    defaults: { _controller: "BibliothequeBundle:Reservation:index" }
+    defaults: { _controller: "ProjetBibliothequeBundle:Reservation:index" }
 
 reservation_show:
     path:     /{id}/show
-    defaults: { _controller: "BibliothequeBundle:Reservation:show" }
+    defaults: { _controller: "ProjetBibliothequeBundle:Reservation:show" }
 
 reservation_new:
     path:     /new
-    defaults: { _controller: "BibliothequeBundle:Reservation:new" }
+    defaults: { _controller: "ProjetBibliothequeBundle:Reservation:new" }
 
 reservation_create:
     path:     /create
-    defaults: { _controller: "BibliothequeBundle:Reservation:create" }
+    defaults: { _controller: "ProjetBibliothequeBundle:Reservation:create" }
     requirements: { _method: post }
 
 reservation_edit:
     path:     /{id}/edit
-    defaults: { _controller: "BibliothequeBundle:Reservation:edit" }
+    defaults: { _controller: "ProjetBibliothequeBundle:Reservation:edit" }
 
 reservation_update:
     path:     /{id}/update
-    defaults: { _controller: "BibliothequeBundle:Reservation:update" }
+    defaults: { _controller: "ProjetBibliothequeBundle:Reservation:update" }
     requirements: { _method: post|put }
 
 reservation_delete:
     path:     /{id}/delete
-    defaults: { _controller: "BibliothequeBundle:Reservation:delete" }
+    defaults: { _controller: "ProjetBibliothequeBundle:Reservation:delete" }
     requirements: { _method: post|delete }

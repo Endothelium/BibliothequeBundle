@@ -1,34 +1,34 @@
 membre:
     path:     /
-    defaults: { _controller: "BibliothequeBundle:Membre:index" }
+    defaults: { _controller: "ProjetBibliothequeBundle:Membre:index" }
 
 membre_show:
     path:     /{id}/show
-    defaults: { _controller: "BibliothequeBundle:Membre:show" }
+    defaults: { _controller: "ProjetBibliothequeBundle:Membre:show" }
 
 membre_new:
     path:     /new
-    defaults: { _controller: "BibliothequeBundle:Membre:new" }
-
-membre_search_by_nom:
-    path:     /search_by_name
-    defaults: { _controller: "BibliothequeBundle:Membre:chercherParNom" }
+    defaults: { _controller: "ProjetBibliothequeBundle:Membre:new" }
 
 membre_create:
     path:     /create
-    defaults: { _controller: "BibliothequeBundle:Membre:create" }
+    defaults: { _controller: "ProjetBibliothequeBundle:Membre:create" }
     requirements: { _method: post }
 
 membre_edit:
     path:     /{id}/edit
-    defaults: { _controller: "BibliothequeBundle:Membre:edit" }
+    defaults: { _controller: "ProjetBibliothequeBundle:Membre:edit" }
 
 membre_update:
     path:     /{id}/update
-    defaults: { _controller: "BibliothequeBundle:Membre:update" }
+    defaults: { _controller: "ProjetBibliothequeBundle:Membre:update" }
     requirements: { _method: post|put }
 
 membre_delete:
     path:     /{id}/delete
-    defaults: { _controller: "BibliothequeBundle:Membre:delete" }
+    defaults: { _controller: "ProjetBibliothequeBundle:Membre:delete" }
     requirements: { _method: post|delete }
+
+membre_search_by_nom:
+    path:     /search_by_name
+    defaults: { _controller: "ProjetBibliothequeBundle:Membre:chercherParNom" }

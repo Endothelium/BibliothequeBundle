@@ -7,11 +7,10 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Identifiant</th>
+                <th>Username</th>
                 <th>Password</th>
                 <th>Nom</th>
                 <th>Prenom</th>
-				<th>Faculte</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -19,18 +18,17 @@
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('membre_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.identifiant }}</td>
+                <td>{{ entity.username }}</td>
                 <td>{{ entity.password }}</td>
                 <td>{{ entity.nom }}</td>
                 <td>{{ entity.prenom }}</td>
-				<td>{{ entity.faculte }}</td>
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('membre_show', { 'id': entity.id }) }}">Afficher</a>
+                        <a href="{{ path('membre_show', { 'id': entity.id }) }}">show</a>
                     </li>
                     <li>
-                        <a href="{{ path('membre_edit', { 'id': entity.id }) }}">Modifier</a>
+                        <a href="{{ path('membre_edit', { 'id': entity.id }) }}">edit</a>
                     </li>
                 </ul>
                 </td>
@@ -42,7 +40,7 @@
         <ul>
         <li>
             <a href="{{ path('membre_new') }}">
-                Creer un nouveau membre
+                Create a new entry
             </a>
         </li>
 		<li>

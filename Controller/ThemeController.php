@@ -1,12 +1,12 @@
 <?php
 
-namespace BibliothequeBundle\Controller;
+namespace Projet\BibliothequeBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use BibliothequeBundle\Entity\Theme;
-use BibliothequeBundle\Form\ThemeType;
+use Projet\BibliothequeBundle\Entity\Theme;
+use Projet\BibliothequeBundle\Form\ThemeType;
 
 /**
  * Theme controller.
@@ -23,9 +23,9 @@ class ThemeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('BibliothequeBundle:Theme')->findAll();
+        $entities = $em->getRepository('ProjetBibliothequeBundle:Theme')->findAll();
 
-        return $this->render('BibliothequeBundle:Theme:index.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Theme:index.html.twig', array(
             'entities' => $entities,
         ));
     }
@@ -47,7 +47,7 @@ class ThemeController extends Controller
             return $this->redirect($this->generateUrl('theme_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('BibliothequeBundle:Theme:new.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Theme:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -81,7 +81,7 @@ class ThemeController extends Controller
         $entity = new Theme();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('BibliothequeBundle:Theme:new.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Theme:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -95,7 +95,7 @@ class ThemeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BibliothequeBundle:Theme')->find($id);
+        $entity = $em->getRepository('ProjetBibliothequeBundle:Theme')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Theme entity.');
@@ -103,7 +103,7 @@ class ThemeController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('BibliothequeBundle:Theme:show.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Theme:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -117,7 +117,7 @@ class ThemeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BibliothequeBundle:Theme')->find($id);
+        $entity = $em->getRepository('ProjetBibliothequeBundle:Theme')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Theme entity.');
@@ -126,7 +126,7 @@ class ThemeController extends Controller
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('BibliothequeBundle:Theme:edit.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Theme:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -159,7 +159,7 @@ class ThemeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BibliothequeBundle:Theme')->find($id);
+        $entity = $em->getRepository('ProjetBibliothequeBundle:Theme')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Theme entity.');
@@ -175,7 +175,7 @@ class ThemeController extends Controller
             return $this->redirect($this->generateUrl('theme_edit', array('id' => $id)));
         }
 
-        return $this->render('BibliothequeBundle:Theme:edit.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Theme:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -192,7 +192,7 @@ class ThemeController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('BibliothequeBundle:Theme')->find($id);
+            $entity = $em->getRepository('ProjetBibliothequeBundle:Theme')->find($id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Theme entity.');

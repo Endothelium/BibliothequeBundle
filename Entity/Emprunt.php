@@ -1,6 +1,6 @@
 <?php
 
-namespace BibliothequeBundle\Entity;
+namespace Projet\BibliothequeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -25,9 +25,14 @@ class Emprunt
     private $dateRetour;
 
     /**
-     * @var \BibliothequeBundle\Entity\Membre
+     * @var \Projet\BibliothequeBundle\Entity\Membre
      */
-    private $emprunteur;
+    private $membreEmp;
+
+    /**
+     * @var \Projet\BibliothequeBundle\Entity\Exemplaire
+     */
+    private $exemplaireEmp;
 
 
     /**
@@ -87,40 +92,35 @@ class Emprunt
     }
 
     /**
-     * Set emprunteur
+     * Set membreEmp
      *
-     * @param \BibliothequeBundle\Entity\Membre $emprunteur
+     * @param \Projet\BibliothequeBundle\Entity\Membre $membreEmp
      * @return Emprunt
      */
-    public function setEmprunteur(\BibliothequeBundle\Entity\Membre $emprunteur = null)
+    public function setMembreEmp(\Projet\BibliothequeBundle\Entity\Membre $membreEmp = null)
     {
-        $this->emprunteur = $emprunteur;
+        $this->membreEmp = $membreEmp;
 
         return $this;
     }
 
     /**
-     * Get emprunteur
+     * Get membreEmp
      *
-     * @return \BibliothequeBundle\Entity\Membre 
+     * @return \Projet\BibliothequeBundle\Entity\Membre 
      */
-    public function getEmprunteur()
+    public function getMembreEmp()
     {
-        return $this->emprunteur;
+        return $this->membreEmp;
     }
-    /**
-     * @var \BibliothequeBundle\Entity\Exemplaire
-     */
-    private $exemplaireEmp;
-
 
     /**
      * Set exemplaireEmp
      *
-     * @param \BibliothequeBundle\Entity\Exemplaire $exemplaireEmp
+     * @param \Projet\BibliothequeBundle\Entity\Exemplaire $exemplaireEmp
      * @return Emprunt
      */
-    public function setExemplaireEmp(\BibliothequeBundle\Entity\Exemplaire $exemplaireEmp = null)
+    public function setExemplaireEmp(\Projet\BibliothequeBundle\Entity\Exemplaire $exemplaireEmp = null)
     {
         $this->exemplaireEmp = $exemplaireEmp;
 
@@ -130,7 +130,7 @@ class Emprunt
     /**
      * Get exemplaireEmp
      *
-     * @return \BibliothequeBundle\Entity\Exemplaire 
+     * @return \Projet\BibliothequeBundle\Entity\Exemplaire 
      */
     public function getExemplaireEmp()
     {

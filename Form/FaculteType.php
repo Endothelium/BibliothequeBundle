@@ -1,6 +1,6 @@
 <?php
 
-namespace BibliothequeBundle\Form;
+namespace Projet\BibliothequeBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -25,7 +25,7 @@ class FaculteType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'BibliothequeBundle\Entity\Faculte'
+            'data_class' => 'Projet\BibliothequeBundle\Entity\Faculte'
         ));
     }
 
@@ -34,6 +34,6 @@ class FaculteType extends AbstractType
      */
     public function getName()
     {
-        return 'bibliothequebundle_faculte';
+        return 'projet_bibliothequebundle_faculte';
     }
 }

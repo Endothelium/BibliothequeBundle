@@ -1,12 +1,12 @@
 <?php
 
-namespace BibliothequeBundle\Controller;
+namespace Projet\BibliothequeBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use BibliothequeBundle\Entity\Auteur;
-use BibliothequeBundle\Form\AuteurType;
+use Projet\BibliothequeBundle\Entity\Auteur;
+use Projet\BibliothequeBundle\Form\AuteurType;
 
 /**
  * Auteur controller.
@@ -23,9 +23,9 @@ class AuteurController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('BibliothequeBundle:Auteur')->findAll();
+        $entities = $em->getRepository('ProjetBibliothequeBundle:Auteur')->findAll();
 
-        return $this->render('BibliothequeBundle:Auteur:index.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Auteur:index.html.twig', array(
             'entities' => $entities,
         ));
     }
@@ -47,7 +47,7 @@ class AuteurController extends Controller
             return $this->redirect($this->generateUrl('auteur_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('BibliothequeBundle:Auteur:new.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Auteur:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -81,7 +81,7 @@ class AuteurController extends Controller
         $entity = new Auteur();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('BibliothequeBundle:Auteur:new.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Auteur:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -95,7 +95,7 @@ class AuteurController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BibliothequeBundle:Auteur')->find($id);
+        $entity = $em->getRepository('ProjetBibliothequeBundle:Auteur')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Auteur entity.');
@@ -103,7 +103,7 @@ class AuteurController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('BibliothequeBundle:Auteur:show.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Auteur:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -117,7 +117,7 @@ class AuteurController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BibliothequeBundle:Auteur')->find($id);
+        $entity = $em->getRepository('ProjetBibliothequeBundle:Auteur')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Auteur entity.');
@@ -126,7 +126,7 @@ class AuteurController extends Controller
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('BibliothequeBundle:Auteur:edit.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Auteur:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -159,7 +159,7 @@ class AuteurController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BibliothequeBundle:Auteur')->find($id);
+        $entity = $em->getRepository('ProjetBibliothequeBundle:Auteur')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Auteur entity.');
@@ -175,7 +175,7 @@ class AuteurController extends Controller
             return $this->redirect($this->generateUrl('auteur_edit', array('id' => $id)));
         }
 
-        return $this->render('BibliothequeBundle:Auteur:edit.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Auteur:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -192,7 +192,7 @@ class AuteurController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('BibliothequeBundle:Auteur')->find($id);
+            $entity = $em->getRepository('ProjetBibliothequeBundle:Auteur')->find($id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Auteur entity.');

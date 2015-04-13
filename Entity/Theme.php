@@ -1,6 +1,6 @@
 <?php
 
-namespace BibliothequeBundle\Entity;
+namespace Projet\BibliothequeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -68,10 +68,10 @@ class Theme
     /**
      * Add livresT
      *
-     * @param \BibliothequeBundle\Entity\Livre $livresT
+     * @param \Projet\BibliothequeBundle\Entity\Livre $livresT
      * @return Theme
      */
-    public function addLivresT(\BibliothequeBundle\Entity\Livre $livresT)
+    public function addLivresT(\Projet\BibliothequeBundle\Entity\Livre $livresT)
     {
         $this->livresT[] = $livresT;
 
@@ -81,9 +81,9 @@ class Theme
     /**
      * Remove livresT
      *
-     * @param \BibliothequeBundle\Entity\Livre $livresT
+     * @param \Projet\BibliothequeBundle\Entity\Livre $livresT
      */
-    public function removeLivresT(\BibliothequeBundle\Entity\Livre $livresT)
+    public function removeLivresT(\Projet\BibliothequeBundle\Entity\Livre $livresT)
     {
         $this->livresT->removeElement($livresT);
     }

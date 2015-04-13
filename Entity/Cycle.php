@@ -1,6 +1,6 @@
 <?php
 
-namespace BibliothequeBundle\Entity;
+namespace Projet\BibliothequeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -96,10 +96,10 @@ class Cycle
     /**
      * Add membresCycle
      *
-     * @param \BibliothequeBundle\Entity\Membre $membresCycle
+     * @param \Projet\BibliothequeBundle\Entity\Membre $membresCycle
      * @return Cycle
      */
-    public function addMembresCycle(\BibliothequeBundle\Entity\Membre $membresCycle)
+    public function addMembresCycle(\Projet\BibliothequeBundle\Entity\Membre $membresCycle)
     {
         $this->membresCycle[] = $membresCycle;
 
@@ -109,9 +109,9 @@ class Cycle
     /**
      * Remove membresCycle
      *
-     * @param \BibliothequeBundle\Entity\Membre $membresCycle
+     * @param \Projet\BibliothequeBundle\Entity\Membre $membresCycle
      */
-    public function removeMembresCycle(\BibliothequeBundle\Entity\Membre $membresCycle)
+    public function removeMembresCycle(\Projet\BibliothequeBundle\Entity\Membre $membresCycle)
     {
         $this->membresCycle->removeElement($membresCycle);
     }

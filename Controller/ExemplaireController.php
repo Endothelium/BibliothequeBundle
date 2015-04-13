@@ -1,12 +1,12 @@
 <?php
 
-namespace BibliothequeBundle\Controller;
+namespace Projet\BibliothequeBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use BibliothequeBundle\Entity\Exemplaire;
-use BibliothequeBundle\Form\ExemplaireType;
+use Projet\BibliothequeBundle\Entity\Exemplaire;
+use Projet\BibliothequeBundle\Form\ExemplaireType;
 
 /**
  * Exemplaire controller.
@@ -23,9 +23,9 @@ class ExemplaireController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('BibliothequeBundle:Exemplaire')->findAll();
+        $entities = $em->getRepository('ProjetBibliothequeBundle:Exemplaire')->findAll();
 
-        return $this->render('BibliothequeBundle:Exemplaire:index.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Exemplaire:index.html.twig', array(
             'entities' => $entities,
         ));
     }
@@ -47,7 +47,7 @@ class ExemplaireController extends Controller
             return $this->redirect($this->generateUrl('exemplaire_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('BibliothequeBundle:Exemplaire:new.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Exemplaire:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -81,7 +81,7 @@ class ExemplaireController extends Controller
         $entity = new Exemplaire();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('BibliothequeBundle:Exemplaire:new.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Exemplaire:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -95,7 +95,7 @@ class ExemplaireController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BibliothequeBundle:Exemplaire')->find($id);
+        $entity = $em->getRepository('ProjetBibliothequeBundle:Exemplaire')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Exemplaire entity.');
@@ -103,7 +103,7 @@ class ExemplaireController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('BibliothequeBundle:Exemplaire:show.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Exemplaire:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -117,7 +117,7 @@ class ExemplaireController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BibliothequeBundle:Exemplaire')->find($id);
+        $entity = $em->getRepository('ProjetBibliothequeBundle:Exemplaire')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Exemplaire entity.');
@@ -126,7 +126,7 @@ class ExemplaireController extends Controller
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('BibliothequeBundle:Exemplaire:edit.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Exemplaire:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -159,7 +159,7 @@ class ExemplaireController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BibliothequeBundle:Exemplaire')->find($id);
+        $entity = $em->getRepository('ProjetBibliothequeBundle:Exemplaire')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Exemplaire entity.');
@@ -175,7 +175,7 @@ class ExemplaireController extends Controller
             return $this->redirect($this->generateUrl('exemplaire_edit', array('id' => $id)));
         }
 
-        return $this->render('BibliothequeBundle:Exemplaire:edit.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Exemplaire:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -192,7 +192,7 @@ class ExemplaireController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('BibliothequeBundle:Exemplaire')->find($id);
+            $entity = $em->getRepository('ProjetBibliothequeBundle:Exemplaire')->find($id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Exemplaire entity.');

@@ -1,28 +1,33 @@
 <?php
 
-namespace BibliothequeBundle\Controller;
+namespace Projet\BibliothequeBundle\Controller;
 
+use Projet\BibliothequeBundle\Entity\Auteur;
+use Projet\BibliothequeBundle\Entity\Cycle;
+use Projet\BibliothequeBundle\Entity\Emprunt;
+use Projet\BibliothequeBundle\Entity\Exemplaire;
+use Projet\BibliothequeBundle\Entity\Faculte;
+use Projet\BibliothequeBundle\Entity\Livre;
+use Projet\BibliothequeBundle\Entity\Membre;
+use Projet\BibliothequeBundle\Entity\Reservation;
+use Projet\BibliothequeBundle\Entity\Theme;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use BibliothequeBundle\Entity\Auteur;
-use BibliothequeBundle\Entity\Cycle;
-use BibliothequeBundle\Entity\Emprunt;
-use BibliothequeBundle\Entity\Exemplaire;
-use BibliothequeBundle\Entity\Faculte;
-use BibliothequeBundle\Entity\Livre;
-use BibliothequeBundle\Entity\Membre;
-use BibliothequeBundle\Entity\Reservation;
-use BibliothequeBundle\Entity\Theme;
-use Symfony\Component\Validator\Constraints\DateTime;
-
 
 class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('BibliothequeBundle:Default:index.html.twig', array('name' => ""));
+	  $user = $this->get('security.context')->getToken()->getUser();
+      $chaineRoles = '';
+      foreach ($user->getRoles() as $groupe)
+         $chaineRoles .= ' '.$groupe;  
+      return $this->render('ProjetBibliothequeBundle:Default:index.html.twig',array('roles' => $chaineRoles));
+
+        // return $this->render('ProjetBibliothequeBundle:Default:index.html.twig');
     }
 	
-	public function addDonneesAction(){
+	public function test1Action(){
+		echo("ACTION TEST");
 		$entityManager = $this->getDoctrine()->getManager();
 		$auteur = new Auteur();
 		$cycle = new Cycle();
@@ -48,6 +53,7 @@ class DefaultController extends Controller
 		$auteur->setPrenom('Paul');
 		$auteur2->setNom('Bernard');
 		$auteur2->setPrenom('Gerard');
+		print_r($auteur);
 		$entityManager->persist($auteur);
 		$entityManager->persist($auteur2);
 		$entityManager->flush();
@@ -60,8 +66,8 @@ class DefaultController extends Controller
 		$entityManager->persist($cycle2);
 		$entityManager->flush();
 		
-		$faculte->setDesignation('Lycée louis thuillier');
-		$faculte2->setDesignation('Lycée la providence');
+		$faculte->setDesignation('LycÃ©e louis thuillier');
+		$faculte2->setDesignation('LycÃ©e la providence');
 		$entityManager->persist($faculte);
 		$entityManager->persist($faculte2);
 		$entityManager->flush();
@@ -106,40 +112,28 @@ class DefaultController extends Controller
 		$entityManager->persist($exemplaire2);
 		$entityManager->flush();
 		
-		$datetime = new DateTime();
-		$format = 'Y-m-d';
-		$date = $datetime->createFromFormat($format, '2009-02-15');
-		$date1 = $datetime->createFromFormat($format, '2015-04-15');
-		$date2 = $datetime->createFromFormat($format, '2014-10-15');
-		$date3 = $datetime->createFromFormat($format, '2015-12-15');
-		$date4 = $datetime->createFromFormat($format, '2016-03-15');
-		$date5 = $datetime->createFromFormat($format, '2009-02-15');
-		
-		
-		$reservation->setDateReservation($date);
-		$reservation->setReserve($membre);
-		$reservation->setExemplaireRes($exemplaire);
-		$reservation2->setDateReservation($date2);
-		$reservation2->setReserve($membre2);
+		$reservation->setDateReservation('02/03/2016');
+		$reservation->setMembreRes($membre);
+		$resercation->setExemplaireRes($exemplaire);
+		$reservation2->setDateReservation('04/12/2013');
+		$reservation2->setMembreRes($membre2);
 		$reservation2->setExemplaireRes($exemplaire2);
 		$entityManager->persist($reservation);
 		$entityManager->persist($reservation2);
 		$entityManager->flush();
 		
-		$emprunt->setDateDebut($date3);
-		$emprunt->setDateRetour($date4);
-		$emprunt->setEmprunteur($membre);
+		$emprunt->setDateDebut('03/06/2015');
+		$emprunt->setDateRetour('06/06/2015');
+		$emprunt->setMembreEmp($membre);
 		$emprunt->setExemplaireEmp($exemplaire);
-		$emprunt2->setDateDebut($date5);
-		$emprunt2->setDateRetour($date3);
-		$emprunt2->setEmprunteur($membre2);
+		$emprunt2->setDateDebut('09/08/2015');
+		$emprunt2->setDateRetour('12/08/2015');
+		$emprunt2->setMembreEmp($membre2);
 		$emprunt2->setExemplaireEmp($exemplaire2);
 		$entityManager->persist($emprunt);
 		$entityManager->persist($emprunt2);
 		$entityManager->flush();
 		
-		return $this->render('BibliothequeBundle:Default:index.html.twig', array('name' => ""));
+		
 	}
 }
-
-?>

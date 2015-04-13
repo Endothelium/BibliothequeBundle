@@ -1,6 +1,6 @@
 <?php
 
-namespace BibliothequeBundle\Entity;
+namespace Projet\BibliothequeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -20,9 +20,14 @@ class Reservation
     private $dateReservation;
 
     /**
-     * @var \BibliothequeBundle\Entity\Membre
+     * @var \Projet\BibliothequeBundle\Entity\Membre
      */
-    private $reserve;
+    private $membreRes;
+
+    /**
+     * @var \Projet\BibliothequeBundle\Entity\Exemplaire
+     */
+    private $exemplaireRes;
 
 
     /**
@@ -59,40 +64,35 @@ class Reservation
     }
 
     /**
-     * Set reserve
+     * Set membreRes
      *
-     * @param \BibliothequeBundle\Entity\Membre $reserve
+     * @param \Projet\BibliothequeBundle\Entity\Membre $membreRes
      * @return Reservation
      */
-    public function setReserve(\BibliothequeBundle\Entity\Membre $reserve = null)
+    public function setMembreRes(\Projet\BibliothequeBundle\Entity\Membre $membreRes = null)
     {
-        $this->reserve = $reserve;
+        $this->membreRes = $membreRes;
 
         return $this;
     }
 
     /**
-     * Get reserve
+     * Get membreRes
      *
-     * @return \BibliothequeBundle\Entity\Membre 
+     * @return \Projet\BibliothequeBundle\Entity\Membre 
      */
-    public function getReserve()
+    public function getMembreRes()
     {
-        return $this->reserve;
+        return $this->membreRes;
     }
-    /**
-     * @var \BibliothequeBundle\Entity\Exemplaire
-     */
-    private $exemplaireRes;
-
 
     /**
      * Set exemplaireRes
      *
-     * @param \BibliothequeBundle\Entity\Exemplaire $exemplaireRes
+     * @param \Projet\BibliothequeBundle\Entity\Exemplaire $exemplaireRes
      * @return Reservation
      */
-    public function setExemplaireRes(\BibliothequeBundle\Entity\Exemplaire $exemplaireRes = null)
+    public function setExemplaireRes(\Projet\BibliothequeBundle\Entity\Exemplaire $exemplaireRes = null)
     {
         $this->exemplaireRes = $exemplaireRes;
 
@@ -102,7 +102,7 @@ class Reservation
     /**
      * Get exemplaireRes
      *
-     * @return \BibliothequeBundle\Entity\Exemplaire 
+     * @return \Projet\BibliothequeBundle\Entity\Exemplaire 
      */
     public function getExemplaireRes()
     {

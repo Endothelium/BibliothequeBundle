@@ -1,12 +1,12 @@
 <?php
 
-namespace BibliothequeBundle\Controller;
+namespace Projet\BibliothequeBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use BibliothequeBundle\Entity\Emprunt;
-use BibliothequeBundle\Form\EmpruntType;
+use Projet\BibliothequeBundle\Entity\Emprunt;
+use Projet\BibliothequeBundle\Form\EmpruntType;
 
 /**
  * Emprunt controller.
@@ -23,9 +23,9 @@ class EmpruntController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('BibliothequeBundle:Emprunt')->findAll();
+        $entities = $em->getRepository('ProjetBibliothequeBundle:Emprunt')->findAll();
 
-        return $this->render('BibliothequeBundle:Emprunt:index.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Emprunt:index.html.twig', array(
             'entities' => $entities,
         ));
     }
@@ -47,7 +47,7 @@ class EmpruntController extends Controller
             return $this->redirect($this->generateUrl('emprunt_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('BibliothequeBundle:Emprunt:new.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Emprunt:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -81,7 +81,7 @@ class EmpruntController extends Controller
         $entity = new Emprunt();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('BibliothequeBundle:Emprunt:new.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Emprunt:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -95,7 +95,7 @@ class EmpruntController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BibliothequeBundle:Emprunt')->find($id);
+        $entity = $em->getRepository('ProjetBibliothequeBundle:Emprunt')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Emprunt entity.');
@@ -103,7 +103,7 @@ class EmpruntController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('BibliothequeBundle:Emprunt:show.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Emprunt:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -117,7 +117,7 @@ class EmpruntController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BibliothequeBundle:Emprunt')->find($id);
+        $entity = $em->getRepository('ProjetBibliothequeBundle:Emprunt')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Emprunt entity.');
@@ -126,7 +126,7 @@ class EmpruntController extends Controller
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('BibliothequeBundle:Emprunt:edit.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Emprunt:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -159,7 +159,7 @@ class EmpruntController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BibliothequeBundle:Emprunt')->find($id);
+        $entity = $em->getRepository('ProjetBibliothequeBundle:Emprunt')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Emprunt entity.');
@@ -175,7 +175,7 @@ class EmpruntController extends Controller
             return $this->redirect($this->generateUrl('emprunt_edit', array('id' => $id)));
         }
 
-        return $this->render('BibliothequeBundle:Emprunt:edit.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Emprunt:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -192,7 +192,7 @@ class EmpruntController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('BibliothequeBundle:Emprunt')->find($id);
+            $entity = $em->getRepository('ProjetBibliothequeBundle:Emprunt')->find($id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Emprunt entity.');

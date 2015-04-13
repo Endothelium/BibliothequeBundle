@@ -1,5 +1,16 @@
-{% extends "BibliothequeBundle:Default:layout.html.twig" %}
-{% block body -%}
+{% extends "ProjetBibliothequeBundle:Default:layout.html.twig" %}
+
+{% block titre %}
+    Accueil - {{ parent() }}
+{% endblock %}
+			{% block menu %}
+					{{include("ProjetBibliothequeBundle:Default:menu.html.twig")}}
+			{% endblock %}
+{% block module %}
+    <h2>Accueil</h2>
+	    <p><i>Qui suis-je ?  
+           user : {{ app.user.username }}
+           roles : {{ roles }}
+        </i></p>
 
 {% endblock %}
-

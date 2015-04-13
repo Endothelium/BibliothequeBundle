@@ -1,12 +1,12 @@
 <?php
 
-namespace BibliothequeBundle\Controller;
+namespace Projet\BibliothequeBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use BibliothequeBundle\Entity\Livre;
-use BibliothequeBundle\Form\LivreType;
+use Projet\BibliothequeBundle\Entity\Livre;
+use Projet\BibliothequeBundle\Form\LivreType;
 
 /**
  * Livre controller.
@@ -23,9 +23,9 @@ class LivreController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('BibliothequeBundle:Livre')->findAll();
+        $entities = $em->getRepository('ProjetBibliothequeBundle:Livre')->findAll();
 
-        return $this->render('BibliothequeBundle:Livre:index.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Livre:index.html.twig', array(
             'entities' => $entities,
         ));
     }
@@ -47,7 +47,7 @@ class LivreController extends Controller
             return $this->redirect($this->generateUrl('livre_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('BibliothequeBundle:Livre:new.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Livre:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -81,7 +81,7 @@ class LivreController extends Controller
         $entity = new Livre();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('BibliothequeBundle:Livre:new.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Livre:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -95,7 +95,7 @@ class LivreController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BibliothequeBundle:Livre')->find($id);
+        $entity = $em->getRepository('ProjetBibliothequeBundle:Livre')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Livre entity.');
@@ -103,7 +103,7 @@ class LivreController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('BibliothequeBundle:Livre:show.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Livre:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -117,7 +117,7 @@ class LivreController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BibliothequeBundle:Livre')->find($id);
+        $entity = $em->getRepository('ProjetBibliothequeBundle:Livre')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Livre entity.');
@@ -126,7 +126,7 @@ class LivreController extends Controller
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('BibliothequeBundle:Livre:edit.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Livre:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -159,7 +159,7 @@ class LivreController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BibliothequeBundle:Livre')->find($id);
+        $entity = $em->getRepository('ProjetBibliothequeBundle:Livre')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Livre entity.');
@@ -175,7 +175,7 @@ class LivreController extends Controller
             return $this->redirect($this->generateUrl('livre_edit', array('id' => $id)));
         }
 
-        return $this->render('BibliothequeBundle:Livre:edit.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Livre:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -192,7 +192,7 @@ class LivreController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('BibliothequeBundle:Livre')->find($id);
+            $entity = $em->getRepository('ProjetBibliothequeBundle:Livre')->find($id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Livre entity.');

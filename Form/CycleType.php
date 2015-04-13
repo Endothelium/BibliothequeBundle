@@ -1,6 +1,6 @@
 <?php
 
-namespace BibliothequeBundle\Form;
+namespace Projet\BibliothequeBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -26,7 +26,7 @@ class CycleType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'BibliothequeBundle\Entity\Cycle'
+            'data_class' => 'Projet\BibliothequeBundle\Entity\Cycle'
         ));
     }
 
@@ -35,6 +35,6 @@ class CycleType extends AbstractType
      */
     public function getName()
     {
-        return 'bibliothequebundle_cycle';
+        return 'projet_bibliothequebundle_cycle';
     }
 }

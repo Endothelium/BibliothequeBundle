@@ -1,12 +1,12 @@
 <?php
 
-namespace BibliothequeBundle\Controller;
+namespace Projet\BibliothequeBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use BibliothequeBundle\Entity\Cycle;
-use BibliothequeBundle\Form\CycleType;
+use Projet\BibliothequeBundle\Entity\Cycle;
+use Projet\BibliothequeBundle\Form\CycleType;
 
 /**
  * Cycle controller.
@@ -23,9 +23,9 @@ class CycleController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('BibliothequeBundle:Cycle')->findAll();
+        $entities = $em->getRepository('ProjetBibliothequeBundle:Cycle')->findAll();
 
-        return $this->render('BibliothequeBundle:Cycle:index.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Cycle:index.html.twig', array(
             'entities' => $entities,
         ));
     }
@@ -47,7 +47,7 @@ class CycleController extends Controller
             return $this->redirect($this->generateUrl('cycle_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('BibliothequeBundle:Cycle:new.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Cycle:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -81,7 +81,7 @@ class CycleController extends Controller
         $entity = new Cycle();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('BibliothequeBundle:Cycle:new.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Cycle:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -95,7 +95,7 @@ class CycleController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BibliothequeBundle:Cycle')->find($id);
+        $entity = $em->getRepository('ProjetBibliothequeBundle:Cycle')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Cycle entity.');
@@ -103,7 +103,7 @@ class CycleController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('BibliothequeBundle:Cycle:show.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Cycle:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -117,7 +117,7 @@ class CycleController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BibliothequeBundle:Cycle')->find($id);
+        $entity = $em->getRepository('ProjetBibliothequeBundle:Cycle')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Cycle entity.');
@@ -126,7 +126,7 @@ class CycleController extends Controller
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('BibliothequeBundle:Cycle:edit.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Cycle:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -159,7 +159,7 @@ class CycleController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BibliothequeBundle:Cycle')->find($id);
+        $entity = $em->getRepository('ProjetBibliothequeBundle:Cycle')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Cycle entity.');
@@ -175,7 +175,7 @@ class CycleController extends Controller
             return $this->redirect($this->generateUrl('cycle_edit', array('id' => $id)));
         }
 
-        return $this->render('BibliothequeBundle:Cycle:edit.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Cycle:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -192,7 +192,7 @@ class CycleController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('BibliothequeBundle:Cycle')->find($id);
+            $entity = $em->getRepository('ProjetBibliothequeBundle:Cycle')->find($id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Cycle entity.');

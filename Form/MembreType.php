@@ -1,6 +1,6 @@
 <?php
 
-namespace BibliothequeBundle\Form;
+namespace Projet\BibliothequeBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -15,11 +15,12 @@ class MembreType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('identifiant')
+            ->add('username')
             ->add('password')
             ->add('nom')
             ->add('prenom')
             ->add('faculte')
+            ->add('cycle')
         ;
     }
     
@@ -29,7 +30,7 @@ class MembreType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'BibliothequeBundle\Entity\Membre'
+            'data_class' => 'Projet\BibliothequeBundle\Entity\Membre'
         ));
     }
 
@@ -38,6 +39,6 @@ class MembreType extends AbstractType
      */
     public function getName()
     {
-        return 'bibliothequebundle_membre';
+        return 'projet_bibliothequebundle_membre';
     }
 }

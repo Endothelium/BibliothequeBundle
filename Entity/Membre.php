@@ -1,6 +1,6 @@
 <?php
 
-namespace BibliothequeBundle\Entity;
+namespace Projet\BibliothequeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -17,7 +17,7 @@ class Membre
     /**
      * @var string
      */
-    private $identifiant;
+    private $username;
 
     /**
      * @var string
@@ -40,9 +40,19 @@ class Membre
     private $emprunts;
 
     /**
-     * @var \BibliothequeBundle\Entity\Faculte
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $reservations;
+
+    /**
+     * @var \Projet\BibliothequeBundle\Entity\Faculte
      */
     private $faculte;
+
+    /**
+     * @var \Projet\BibliothequeBundle\Entity\Cycle
+     */
+    private $cycle;
 
     /**
      * Constructor
@@ -50,6 +60,7 @@ class Membre
     public function __construct()
     {
         $this->emprunts = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->reservations = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -63,26 +74,26 @@ class Membre
     }
 
     /**
-     * Set identifiant
+     * Set username
      *
-     * @param string $identifiant
+     * @param string $username
      * @return Membre
      */
-    public function setIdentifiant($identifiant)
+    public function setUsername($username)
     {
-        $this->identifiant = $identifiant;
+        $this->username = $username;
 
         return $this;
     }
 
     /**
-     * Get identifiant
+     * Get username
      *
      * @return string 
      */
-    public function getIdentifiant()
+    public function getUsername()
     {
-        return $this->identifiant;
+        return $this->username;
     }
 
     /**
@@ -157,10 +168,10 @@ class Membre
     /**
      * Add emprunts
      *
-     * @param \BibliothequeBundle\Entity\Emprunt $emprunts
+     * @param \Projet\BibliothequeBundle\Entity\Emprunt $emprunts
      * @return Membre
      */
-    public function addEmprunt(\BibliothequeBundle\Entity\Emprunt $emprunts)
+    public function addEmprunt(\Projet\BibliothequeBundle\Entity\Emprunt $emprunts)
     {
         $this->emprunts[] = $emprunts;
 
@@ -170,9 +181,9 @@ class Membre
     /**
      * Remove emprunts
      *
-     * @param \BibliothequeBundle\Entity\Emprunt $emprunts
+     * @param \Projet\BibliothequeBundle\Entity\Emprunt $emprunts
      */
-    public function removeEmprunt(\BibliothequeBundle\Entity\Emprunt $emprunts)
+    public function removeEmprunt(\Projet\BibliothequeBundle\Entity\Emprunt $emprunts)
     {
         $this->emprunts->removeElement($emprunts);
     }
@@ -188,45 +199,12 @@ class Membre
     }
 
     /**
-     * Set faculte
-     *
-     * @param \BibliothequeBundle\Entity\Faculte $faculte
-     * @return Membre
-     */
-    public function setFaculte(\BibliothequeBundle\Entity\Faculte $faculte = null)
-    {
-        $this->faculte = $faculte;
-
-        return $this;
-    }
-
-    /**
-     * Get faculte
-     *
-     * @return \BibliothequeBundle\Entity\Faculte 
-     */
-    public function getFaculte()
-    {
-        return $this->faculte;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $reservations;
-
-    /**
-     * @var \BibliothequeBundle\Entity\Cycle
-     */
-    private $cycle;
-
-
-    /**
      * Add reservations
      *
-     * @param \BibliothequeBundle\Entity\Reservation $reservations
+     * @param \Projet\BibliothequeBundle\Entity\Reservation $reservations
      * @return Membre
      */
-    public function addReservation(\BibliothequeBundle\Entity\Reservation $reservations)
+    public function addReservation(\Projet\BibliothequeBundle\Entity\Reservation $reservations)
     {
         $this->reservations[] = $reservations;
 
@@ -236,9 +214,9 @@ class Membre
     /**
      * Remove reservations
      *
-     * @param \BibliothequeBundle\Entity\Reservation $reservations
+     * @param \Projet\BibliothequeBundle\Entity\Reservation $reservations
      */
-    public function removeReservation(\BibliothequeBundle\Entity\Reservation $reservations)
+    public function removeReservation(\Projet\BibliothequeBundle\Entity\Reservation $reservations)
     {
         $this->reservations->removeElement($reservations);
     }
@@ -254,12 +232,35 @@ class Membre
     }
 
     /**
-     * Set cycle
+     * Set faculte
      *
-     * @param \BibliothequeBundle\Entity\Cycle $cycle
+     * @param \Projet\BibliothequeBundle\Entity\Faculte $faculte
      * @return Membre
      */
-    public function setCycle(\BibliothequeBundle\Entity\Cycle $cycle = null)
+    public function setFaculte(\Projet\BibliothequeBundle\Entity\Faculte $faculte = null)
+    {
+        $this->faculte = $faculte;
+
+        return $this;
+    }
+
+    /**
+     * Get faculte
+     *
+     * @return \Projet\BibliothequeBundle\Entity\Faculte 
+     */
+    public function getFaculte()
+    {
+        return $this->faculte;
+    }
+
+    /**
+     * Set cycle
+     *
+     * @param \Projet\BibliothequeBundle\Entity\Cycle $cycle
+     * @return Membre
+     */
+    public function setCycle(\Projet\BibliothequeBundle\Entity\Cycle $cycle = null)
     {
         $this->cycle = $cycle;
 
@@ -269,10 +270,28 @@ class Membre
     /**
      * Get cycle
      *
-     * @return \BibliothequeBundle\Entity\Cycle 
+     * @return \Projet\BibliothequeBundle\Entity\Cycle 
      */
     public function getCycle()
     {
         return $this->cycle;
+    }
+	
+	public function getSalt() {
+        return '';  // sel vide !
+    }
+	
+    public function getRoles() {
+        return array('ROLE_MEM'); // pas de rôle pour l'instant
+    }
+	
+    public function eraseCredentials() { }
+	
+    public function serialize() {
+        return serialize(array( $this->id, $this->username, $this->password));
+    }
+	
+    public function unserialize($serialized) {
+        list( $this->id, $this->username, $this->password) = unserialize($serialized);
     }
 }

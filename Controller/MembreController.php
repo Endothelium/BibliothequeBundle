@@ -1,13 +1,12 @@
 <?php
 
-namespace BibliothequeBundle\Controller;
+namespace Projet\BibliothequeBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use BibliothequeBundle\Entity\Membre;
-use BibliothequeBundle\Form\MembreType;
-
+use Projet\BibliothequeBundle\Entity\Membre;
+use Projet\BibliothequeBundle\Form\MembreType;
 
 /**
  * Membre controller.
@@ -24,9 +23,9 @@ class MembreController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('BibliothequeBundle:Membre')->findAll();
+        $entities = $em->getRepository('ProjetBibliothequeBundle:Membre')->findAll();
 
-        return $this->render('BibliothequeBundle:Membre:index.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Membre:index.html.twig', array(
             'entities' => $entities,
         ));
     }
@@ -48,7 +47,7 @@ class MembreController extends Controller
             return $this->redirect($this->generateUrl('membre_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('BibliothequeBundle:Membre:new.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Membre:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -82,7 +81,7 @@ class MembreController extends Controller
         $entity = new Membre();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('BibliothequeBundle:Membre:new.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Membre:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -96,7 +95,7 @@ class MembreController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BibliothequeBundle:Membre')->find($id);
+        $entity = $em->getRepository('ProjetBibliothequeBundle:Membre')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Membre entity.');
@@ -104,13 +103,11 @@ class MembreController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('BibliothequeBundle:Membre:show.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Membre:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }
-	
-
 
     /**
      * Displays a form to edit an existing Membre entity.
@@ -120,7 +117,7 @@ class MembreController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BibliothequeBundle:Membre')->find($id);
+        $entity = $em->getRepository('ProjetBibliothequeBundle:Membre')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Membre entity.');
@@ -129,7 +126,7 @@ class MembreController extends Controller
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('BibliothequeBundle:Membre:edit.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Membre:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -162,7 +159,7 @@ class MembreController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BibliothequeBundle:Membre')->find($id);
+        $entity = $em->getRepository('ProjetBibliothequeBundle:Membre')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Membre entity.');
@@ -178,7 +175,7 @@ class MembreController extends Controller
             return $this->redirect($this->generateUrl('membre_edit', array('id' => $id)));
         }
 
-        return $this->render('BibliothequeBundle:Membre:edit.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Membre:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -195,7 +192,7 @@ class MembreController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('BibliothequeBundle:Membre')->find($id);
+            $entity = $em->getRepository('ProjetBibliothequeBundle:Membre')->find($id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Membre entity.');
@@ -226,7 +223,7 @@ class MembreController extends Controller
     }
 	
 	/******************************************/
-	/* Valérian*/
+	/* ValÃ©rian*/
 	/*****************************************/
 	
 		private function createSearchByNameForm()
@@ -244,11 +241,11 @@ class MembreController extends Controller
 		if($searchByNameForm->isValid()){
 			$repository = $this->getDoctrine()
 						       ->getEntityManager()
-							   ->getRepository('BibliothequeBundle:Membre');
+							   ->getRepository('ProjetBibliothequeBundle:Membre');
 			$membres = $repository->chercherParNomPart($searchByNameForm['nom']->getData());
-			return $this->render('BibliothequeBundle:Membre:listerMembre.html.twig', array('membres'=> $membres));
+			return $this->render('ProjetBibliothequeBundle:Membre:listerMembre.html.twig', array('membres'=> $membres));
 			
 		}
-		return $this->render('BibliothequeBundle:Membre:chercherParNom.html.twig',array('form' => $searchByNameForm->createView()));
+		return $this->render('ProjetBibliothequeBundle:Membre:chercherParNom.html.twig',array('form' => $searchByNameForm->createView()));
 	}
 }

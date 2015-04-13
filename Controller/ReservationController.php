@@ -1,12 +1,12 @@
 <?php
 
-namespace BibliothequeBundle\Controller;
+namespace Projet\BibliothequeBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use BibliothequeBundle\Entity\Reservation;
-use BibliothequeBundle\Form\ReservationType;
+use Projet\BibliothequeBundle\Entity\Reservation;
+use Projet\BibliothequeBundle\Form\ReservationType;
 
 /**
  * Reservation controller.
@@ -23,9 +23,9 @@ class ReservationController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('BibliothequeBundle:Reservation')->findAll();
+        $entities = $em->getRepository('ProjetBibliothequeBundle:Reservation')->findAll();
 
-        return $this->render('BibliothequeBundle:Reservation:index.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Reservation:index.html.twig', array(
             'entities' => $entities,
         ));
     }
@@ -47,7 +47,7 @@ class ReservationController extends Controller
             return $this->redirect($this->generateUrl('reservation_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('BibliothequeBundle:Reservation:new.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Reservation:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -81,7 +81,7 @@ class ReservationController extends Controller
         $entity = new Reservation();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('BibliothequeBundle:Reservation:new.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Reservation:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -95,7 +95,7 @@ class ReservationController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BibliothequeBundle:Reservation')->find($id);
+        $entity = $em->getRepository('ProjetBibliothequeBundle:Reservation')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Reservation entity.');
@@ -103,7 +103,7 @@ class ReservationController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('BibliothequeBundle:Reservation:show.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Reservation:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -117,7 +117,7 @@ class ReservationController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BibliothequeBundle:Reservation')->find($id);
+        $entity = $em->getRepository('ProjetBibliothequeBundle:Reservation')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Reservation entity.');
@@ -126,7 +126,7 @@ class ReservationController extends Controller
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('BibliothequeBundle:Reservation:edit.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Reservation:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -159,7 +159,7 @@ class ReservationController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BibliothequeBundle:Reservation')->find($id);
+        $entity = $em->getRepository('ProjetBibliothequeBundle:Reservation')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Reservation entity.');
@@ -175,7 +175,7 @@ class ReservationController extends Controller
             return $this->redirect($this->generateUrl('reservation_edit', array('id' => $id)));
         }
 
-        return $this->render('BibliothequeBundle:Reservation:edit.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Reservation:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -192,7 +192,7 @@ class ReservationController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('BibliothequeBundle:Reservation')->find($id);
+            $entity = $em->getRepository('ProjetBibliothequeBundle:Reservation')->find($id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Reservation entity.');

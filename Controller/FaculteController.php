@@ -1,12 +1,12 @@
 <?php
 
-namespace BibliothequeBundle\Controller;
+namespace Projet\BibliothequeBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use BibliothequeBundle\Entity\Faculte;
-use BibliothequeBundle\Form\FaculteType;
+use Projet\BibliothequeBundle\Entity\Faculte;
+use Projet\BibliothequeBundle\Form\FaculteType;
 
 /**
  * Faculte controller.
@@ -23,9 +23,9 @@ class FaculteController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('BibliothequeBundle:Faculte')->findAll();
+        $entities = $em->getRepository('ProjetBibliothequeBundle:Faculte')->findAll();
 
-        return $this->render('BibliothequeBundle:Faculte:index.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Faculte:index.html.twig', array(
             'entities' => $entities,
         ));
     }
@@ -47,7 +47,7 @@ class FaculteController extends Controller
             return $this->redirect($this->generateUrl('faculte_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('BibliothequeBundle:Faculte:new.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Faculte:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -81,7 +81,7 @@ class FaculteController extends Controller
         $entity = new Faculte();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('BibliothequeBundle:Faculte:new.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Faculte:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -95,7 +95,7 @@ class FaculteController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BibliothequeBundle:Faculte')->find($id);
+        $entity = $em->getRepository('ProjetBibliothequeBundle:Faculte')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Faculte entity.');
@@ -103,7 +103,7 @@ class FaculteController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('BibliothequeBundle:Faculte:show.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Faculte:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -117,7 +117,7 @@ class FaculteController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BibliothequeBundle:Faculte')->find($id);
+        $entity = $em->getRepository('ProjetBibliothequeBundle:Faculte')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Faculte entity.');
@@ -126,7 +126,7 @@ class FaculteController extends Controller
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('BibliothequeBundle:Faculte:edit.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Faculte:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -159,7 +159,7 @@ class FaculteController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BibliothequeBundle:Faculte')->find($id);
+        $entity = $em->getRepository('ProjetBibliothequeBundle:Faculte')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Faculte entity.');
@@ -175,7 +175,7 @@ class FaculteController extends Controller
             return $this->redirect($this->generateUrl('faculte_edit', array('id' => $id)));
         }
 
-        return $this->render('BibliothequeBundle:Faculte:edit.html.twig', array(
+        return $this->render('ProjetBibliothequeBundle:Faculte:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -192,7 +192,7 @@ class FaculteController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('BibliothequeBundle:Faculte')->find($id);
+            $entity = $em->getRepository('ProjetBibliothequeBundle:Faculte')->find($id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Faculte entity.');

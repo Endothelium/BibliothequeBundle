@@ -1,7 +1,7 @@
-BibliothequeBundle\Entity\Theme:
+Projet\BibliothequeBundle\Entity\Theme:
     type: entity
     table: null
-    repositoryClass: BibliothequeBundle\Entity\ThemeRepository
+    repositoryClass: Projet\BibliothequeBundle\Entity\ThemeRepository
     manyToMany:
         livresT:
             targetEntity: Livre

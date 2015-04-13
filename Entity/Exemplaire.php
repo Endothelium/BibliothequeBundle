@@ -1,6 +1,6 @@
 <?php
 
-namespace BibliothequeBundle\Entity;
+namespace Projet\BibliothequeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -25,7 +25,12 @@ class Exemplaire
     private $listemprunts;
 
     /**
-     * @var \BibliothequeBundle\Entity\Livre
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $listreservations;
+
+    /**
+     * @var \Projet\BibliothequeBundle\Entity\Livre
      */
     private $livre;
 
@@ -35,6 +40,7 @@ class Exemplaire
     public function __construct()
     {
         $this->listemprunts = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->listreservations = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -73,10 +79,10 @@ class Exemplaire
     /**
      * Add listemprunts
      *
-     * @param \BibliothequeBundle\Entity\Emprunt $listemprunts
+     * @param \Projet\BibliothequeBundle\Entity\Emprunt $listemprunts
      * @return Exemplaire
      */
-    public function addListemprunt(\BibliothequeBundle\Entity\Emprunt $listemprunts)
+    public function addListemprunt(\Projet\BibliothequeBundle\Entity\Emprunt $listemprunts)
     {
         $this->listemprunts[] = $listemprunts;
 
@@ -86,9 +92,9 @@ class Exemplaire
     /**
      * Remove listemprunts
      *
-     * @param \BibliothequeBundle\Entity\Emprunt $listemprunts
+     * @param \Projet\BibliothequeBundle\Entity\Emprunt $listemprunts
      */
-    public function removeListemprunt(\BibliothequeBundle\Entity\Emprunt $listemprunts)
+    public function removeListemprunt(\Projet\BibliothequeBundle\Entity\Emprunt $listemprunts)
     {
         $this->listemprunts->removeElement($listemprunts);
     }
@@ -104,40 +110,12 @@ class Exemplaire
     }
 
     /**
-     * Set livre
-     *
-     * @param \BibliothequeBundle\Entity\Livre $livre
-     * @return Exemplaire
-     */
-    public function setLivre(\BibliothequeBundle\Entity\Livre $livre = null)
-    {
-        $this->livre = $livre;
-
-        return $this;
-    }
-
-    /**
-     * Get livre
-     *
-     * @return \BibliothequeBundle\Entity\Livre 
-     */
-    public function getLivre()
-    {
-        return $this->livre;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $listreservations;
-
-
-    /**
      * Add listreservations
      *
-     * @param \BibliothequeBundle\Entity\Reservation $listreservations
+     * @param \Projet\BibliothequeBundle\Entity\Reservation $listreservations
      * @return Exemplaire
      */
-    public function addListreservation(\BibliothequeBundle\Entity\Reservation $listreservations)
+    public function addListreservation(\Projet\BibliothequeBundle\Entity\Reservation $listreservations)
     {
         $this->listreservations[] = $listreservations;
 
@@ -147,9 +125,9 @@ class Exemplaire
     /**
      * Remove listreservations
      *
-     * @param \BibliothequeBundle\Entity\Reservation $listreservations
+     * @param \Projet\BibliothequeBundle\Entity\Reservation $listreservations
      */
-    public function removeListreservation(\BibliothequeBundle\Entity\Reservation $listreservations)
+    public function removeListreservation(\Projet\BibliothequeBundle\Entity\Reservation $listreservations)
     {
         $this->listreservations->removeElement($listreservations);
     }
@@ -162,5 +140,28 @@ class Exemplaire
     public function getListreservations()
     {
         return $this->listreservations;
+    }
+
+    /**
+     * Set livre
+     *
+     * @param \Projet\BibliothequeBundle\Entity\Livre $livre
+     * @return Exemplaire
+     */
+    public function setLivre(\Projet\BibliothequeBundle\Entity\Livre $livre = null)
+    {
+        $this->livre = $livre;
+
+        return $this;
+    }
+
+    /**
+     * Get livre
+     *
+     * @return \Projet\BibliothequeBundle\Entity\Livre 
+     */
+    public function getLivre()
+    {
+        return $this->livre;
     }
 }
