@@ -24,6 +24,24 @@ class Livre
      */
     private $notice;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $exemplaires;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $auteurs;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->exemplaires = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->auteurs = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -80,17 +98,38 @@ class Livre
     {
         return $this->notice;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $auteurs;
 
     /**
-     * Constructor
+     * Add exemplaires
+     *
+     * @param \BibliothequeBundle\Entity\Exemplaire $exemplaires
+     * @return Livre
      */
-    public function __construct()
+    public function addExemplaire(\BibliothequeBundle\Entity\Exemplaire $exemplaires)
     {
-        $this->auteurs = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->exemplaires[] = $exemplaires;
+
+        return $this;
+    }
+
+    /**
+     * Remove exemplaires
+     *
+     * @param \BibliothequeBundle\Entity\Exemplaire $exemplaires
+     */
+    public function removeExemplaire(\BibliothequeBundle\Entity\Exemplaire $exemplaires)
+    {
+        $this->exemplaires->removeElement($exemplaires);
+    }
+
+    /**
+     * Get exemplaires
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getExemplaires()
+    {
+        return $this->exemplaires;
     }
 
     /**
@@ -128,39 +167,39 @@ class Livre
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $exemplaires;
+    private $themes;
 
 
     /**
-     * Add exemplaires
+     * Add themes
      *
-     * @param \BibliothequeBundle\Entity\Exemplaire $exemplaires
+     * @param \BibliothequeBundle\Entity\Theme $themes
      * @return Livre
      */
-    public function addExemplaire(\BibliothequeBundle\Entity\Exemplaire $exemplaires)
+    public function addTheme(\BibliothequeBundle\Entity\Theme $themes)
     {
-        $this->exemplaires[] = $exemplaires;
+        $this->themes[] = $themes;
 
         return $this;
     }
 
     /**
-     * Remove exemplaires
+     * Remove themes
      *
-     * @param \BibliothequeBundle\Entity\Exemplaire $exemplaires
+     * @param \BibliothequeBundle\Entity\Theme $themes
      */
-    public function removeExemplaire(\BibliothequeBundle\Entity\Exemplaire $exemplaires)
+    public function removeTheme(\BibliothequeBundle\Entity\Theme $themes)
     {
-        $this->exemplaires->removeElement($exemplaires);
+        $this->themes->removeElement($themes);
     }
 
     /**
-     * Get exemplaires
+     * Get themes
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getExemplaires()
+    public function getThemes()
     {
-        return $this->exemplaires;
+        return $this->themes;
     }
 }

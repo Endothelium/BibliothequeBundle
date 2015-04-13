@@ -19,6 +19,23 @@ class Exemplaire
      */
     private $codeRangement;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $listemprunts;
+
+    /**
+     * @var \BibliothequeBundle\Entity\Livre
+     */
+    private $livre;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->listemprunts = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -52,46 +69,6 @@ class Exemplaire
     {
         return $this->codeRangement;
     }
-    /**
-     * @var \BibliothequeBundle\Entity\Livre
-     */
-    private $livre;
-
-
-    /**
-     * Set livre
-     *
-     * @param \BibliothequeBundle\Entity\Livre $livre
-     * @return Exemplaire
-     */
-    public function setLivre(\BibliothequeBundle\Entity\Livre $livre = null)
-    {
-        $this->livre = $livre;
-
-        return $this;
-    }
-
-    /**
-     * Get livre
-     *
-     * @return \BibliothequeBundle\Entity\Livre 
-     */
-    public function getLivre()
-    {
-        return $this->livre;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $listemprunts;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->listemprunts = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Add listemprunts
@@ -124,5 +101,28 @@ class Exemplaire
     public function getListemprunts()
     {
         return $this->listemprunts;
+    }
+
+    /**
+     * Set livre
+     *
+     * @param \BibliothequeBundle\Entity\Livre $livre
+     * @return Exemplaire
+     */
+    public function setLivre(\BibliothequeBundle\Entity\Livre $livre = null)
+    {
+        $this->livre = $livre;
+
+        return $this;
+    }
+
+    /**
+     * Get livre
+     *
+     * @return \BibliothequeBundle\Entity\Livre 
+     */
+    public function getLivre()
+    {
+        return $this->livre;
     }
 }

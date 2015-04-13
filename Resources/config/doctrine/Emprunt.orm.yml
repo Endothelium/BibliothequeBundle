@@ -7,11 +7,10 @@ BibliothequeBundle\Entity\Emprunt:
             targetEntity: Membre
             inversedBy: emprunts
             cascade: [ persist ]
-    manyToOne:
         exemplaireEmp:
             targetEntity: Exemplaire
             inversedBy: listemprunts
-            cascade: [ persist ]
+            cascade: [ persist ] 
     id:
         id:
             type: integer

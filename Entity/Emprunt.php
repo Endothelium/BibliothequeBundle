@@ -24,6 +24,11 @@ class Emprunt
      */
     private $dateRetour;
 
+    /**
+     * @var \BibliothequeBundle\Entity\Membre
+     */
+    private $emprunteur;
+
 
     /**
      * Get id
@@ -80,39 +85,6 @@ class Emprunt
     {
         return $this->dateRetour;
     }
-    /**
-     * @var \BibliothequeBundle\Entity\Membre
-     */
-    private $membre;
-
-
-    /**
-     * Set membre
-     *
-     * @param \BibliothequeBundle\Entity\Membre $membre
-     * @return Emprunt
-     */
-    public function setMembre(\BibliothequeBundle\Entity\Membre $membre = null)
-    {
-        $this->membre = $membre;
-
-        return $this;
-    }
-
-    /**
-     * Get membre
-     *
-     * @return \BibliothequeBundle\Entity\Membre 
-     */
-    public function getMembre()
-    {
-        return $this->membre;
-    }
-    /**
-     * @var \BibliothequeBundle\Entity\Membre
-     */
-    private $emprunteur;
-
 
     /**
      * Set emprunteur
@@ -135,5 +107,33 @@ class Emprunt
     public function getEmprunteur()
     {
         return $this->emprunteur;
+    }
+    /**
+     * @var \BibliothequeBundle\Entity\Exemplaire
+     */
+    private $exemplaireEmp;
+
+
+    /**
+     * Set exemplaireEmp
+     *
+     * @param \BibliothequeBundle\Entity\Exemplaire $exemplaireEmp
+     * @return Emprunt
+     */
+    public function setExemplaireEmp(\BibliothequeBundle\Entity\Exemplaire $exemplaireEmp = null)
+    {
+        $this->exemplaireEmp = $exemplaireEmp;
+
+        return $this;
+    }
+
+    /**
+     * Get exemplaireEmp
+     *
+     * @return \BibliothequeBundle\Entity\Exemplaire 
+     */
+    public function getExemplaireEmp()
+    {
+        return $this->exemplaireEmp;
     }
 }

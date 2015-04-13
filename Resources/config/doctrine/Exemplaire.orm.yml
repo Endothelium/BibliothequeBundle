@@ -12,7 +12,6 @@ BibliothequeBundle\Entity\Exemplaire:
             targetEntity: Emprunt
             mappedBy: exemplaireEmp
             orphanRemoval: true
-    oneToMany:
         listreservations:
             targetEntity: Reservation
             mappedBy: exemplaireRes

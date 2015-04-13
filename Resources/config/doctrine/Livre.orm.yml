@@ -6,7 +6,6 @@ BibliothequeBundle\Entity\Livre:
         auteurs:
             targetEntity: Auteur
             inversedBy: livresA
-    manyToMany:
         themes:
             targetEntity: Theme
             inversedBy: livresT

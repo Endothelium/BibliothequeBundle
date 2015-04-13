@@ -24,6 +24,18 @@ class Cycle
      */
     private $nbLivres;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $membresCycle;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->membresCycle = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -80,56 +92,6 @@ class Cycle
     {
         return $this->nbLivres;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $membres;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->membres = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add membres
-     *
-     * @param \BibliothequeBundle\Entity\Membre $membres
-     * @return Cycle
-     */
-    public function addMembre(\BibliothequeBundle\Entity\Membre $membres)
-    {
-        $this->membres[] = $membres;
-
-        return $this;
-    }
-
-    /**
-     * Remove membres
-     *
-     * @param \BibliothequeBundle\Entity\Membre $membres
-     */
-    public function removeMembre(\BibliothequeBundle\Entity\Membre $membres)
-    {
-        $this->membres->removeElement($membres);
-    }
-
-    /**
-     * Get membres
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getMembres()
-    {
-        return $this->membres;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $membresCycle;
-
 
     /**
      * Add membresCycle

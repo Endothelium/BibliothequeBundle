@@ -19,6 +19,18 @@ class Faculte
      */
     private $designation;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $membresFaculte;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->membresFaculte = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -52,60 +64,6 @@ class Faculte
     {
         return $this->designation;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $membres;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->membres = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add membres
-     *
-     * @param \BibliothequeBundle\Entity\Membre $membres
-     * @return Faculte
-     */
-    public function addMembre(\BibliothequeBundle\Entity\Membre $membres)
-    {
-        $this->membres[] = $membres;
-
-        return $this;
-    }
-
-    /**
-     * Remove membres
-     *
-     * @param \BibliothequeBundle\Entity\Membre $membres
-     */
-    public function removeMembre(\BibliothequeBundle\Entity\Membre $membres)
-    {
-        $this->membres->removeElement($membres);
-    }
-
-    /**
-     * Get membres
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getMembres()
-    {
-        return $this->membres;
-    }
-	
-	public function __toString(){
-		return $this->id.':'.$this->designation;
-	}
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $membresFaculte;
-
 
     /**
      * Add membresFaculte

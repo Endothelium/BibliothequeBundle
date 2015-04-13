@@ -19,6 +19,11 @@ class Reservation
      */
     private $dateReservation;
 
+    /**
+     * @var \BibliothequeBundle\Entity\Membre
+     */
+    private $reserve;
+
 
     /**
      * Get id
@@ -52,39 +57,6 @@ class Reservation
     {
         return $this->dateReservation;
     }
-    /**
-     * @var \BibliothequeBundle\Entity\Membre
-     */
-    private $membre;
-
-
-    /**
-     * Set membre
-     *
-     * @param \BibliothequeBundle\Entity\Membre $membre
-     * @return Reservation
-     */
-    public function setMembre(\BibliothequeBundle\Entity\Membre $membre = null)
-    {
-        $this->membre = $membre;
-
-        return $this;
-    }
-
-    /**
-     * Get membre
-     *
-     * @return \BibliothequeBundle\Entity\Membre 
-     */
-    public function getMembre()
-    {
-        return $this->membre;
-    }
-    /**
-     * @var \BibliothequeBundle\Entity\Membre
-     */
-    private $reserve;
-
 
     /**
      * Set reserve
@@ -107,5 +79,33 @@ class Reservation
     public function getReserve()
     {
         return $this->reserve;
+    }
+    /**
+     * @var \BibliothequeBundle\Entity\Exemplaire
+     */
+    private $exemplaireRes;
+
+
+    /**
+     * Set exemplaireRes
+     *
+     * @param \BibliothequeBundle\Entity\Exemplaire $exemplaireRes
+     * @return Reservation
+     */
+    public function setExemplaireRes(\BibliothequeBundle\Entity\Exemplaire $exemplaireRes = null)
+    {
+        $this->exemplaireRes = $exemplaireRes;
+
+        return $this;
+    }
+
+    /**
+     * Get exemplaireRes
+     *
+     * @return \BibliothequeBundle\Entity\Exemplaire 
+     */
+    public function getExemplaireRes()
+    {
+        return $this->exemplaireRes;
     }
 }

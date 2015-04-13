@@ -6,18 +6,16 @@ BibliothequeBundle\Entity\Membre:
         faculte:
             targetEntity: Faculte
             inversedBy: membresFaculte
-            casccade: [ persist ]
-    manyToOne:
+            cascade: [ persist ]
         cycle:
             targetEntity: Cycle
             inversedBy: membresCycle
-            casccade: [ persist ]
+            cascade: [ persist ]
     oneToMany:
         emprunts:
             targetEntity: Emprunt
             mappedBy: emprunteur
             orphanRemoval: true
-    oneToMany:
         reservations:
             targetEntity: Reservation
             mappedBy: reserve

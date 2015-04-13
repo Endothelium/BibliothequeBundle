@@ -7,7 +7,6 @@ BibliothequeBundle\Entity\Reservation:
             targetEntity: Membre
             inversedBy: reservations
             cascade: [ persist ]
-    manyToOne:
         exemplaireRes:
             targetEntity: Exemplaire
             inversedBy: exemplaires

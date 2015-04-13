@@ -24,6 +24,18 @@ class Auteur
      */
     private $prenom;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $livresA;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->livresA = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -79,18 +91,6 @@ class Auteur
     public function getPrenom()
     {
         return $this->prenom;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $livresA;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->livresA = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

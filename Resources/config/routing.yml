@@ -37,3 +37,7 @@ bibliotheque_livre:
 bibliotheque_homepage:
     path:     /bibliotheque/accueil
     defaults: { _controller: BibliothequeBundle:Default:index}
+
+bibliotheque_jeu_de_donnees:
+    path: /bibliotheque/donnees
+    defaults: { _controller: BibliothequeBundle:Default:addDonnees}

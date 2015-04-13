@@ -19,6 +19,18 @@ class Theme
      */
     private $description;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $livresT;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->livresT = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -51,18 +63,6 @@ class Theme
     public function getDescription()
     {
         return $this->description;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $livresT;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->livresT = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

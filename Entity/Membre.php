@@ -34,6 +34,23 @@ class Membre
      */
     private $prenom;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $emprunts;
+
+    /**
+     * @var \BibliothequeBundle\Entity\Faculte
+     */
+    private $faculte;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->emprunts = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -136,23 +153,6 @@ class Membre
     {
         return $this->prenom;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $emprunts;
-
-    /**
-     * @var \BibliothequeBundle\Entity\Faculte
-     */
-    private $faculte;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->emprunts = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Add emprunts
@@ -208,5 +208,71 @@ class Membre
     public function getFaculte()
     {
         return $this->faculte;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $reservations;
+
+    /**
+     * @var \BibliothequeBundle\Entity\Cycle
+     */
+    private $cycle;
+
+
+    /**
+     * Add reservations
+     *
+     * @param \BibliothequeBundle\Entity\Reservation $reservations
+     * @return Membre
+     */
+    public function addReservation(\BibliothequeBundle\Entity\Reservation $reservations)
+    {
+        $this->reservations[] = $reservations;
+
+        return $this;
+    }
+
+    /**
+     * Remove reservations
+     *
+     * @param \BibliothequeBundle\Entity\Reservation $reservations
+     */
+    public function removeReservation(\BibliothequeBundle\Entity\Reservation $reservations)
+    {
+        $this->reservations->removeElement($reservations);
+    }
+
+    /**
+     * Get reservations
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getReservations()
+    {
+        return $this->reservations;
+    }
+
+    /**
+     * Set cycle
+     *
+     * @param \BibliothequeBundle\Entity\Cycle $cycle
+     * @return Membre
+     */
+    public function setCycle(\BibliothequeBundle\Entity\Cycle $cycle = null)
+    {
+        $this->cycle = $cycle;
+
+        return $this;
+    }
+
+    /**
+     * Get cycle
+     *
+     * @return \BibliothequeBundle\Entity\Cycle 
+     */
+    public function getCycle()
+    {
+        return $this->cycle;
     }
 }
